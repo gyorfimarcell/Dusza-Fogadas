@@ -28,7 +28,18 @@ namespace Dusza_Fogadas
 
         private void btnDontHave_Click(object sender, RoutedEventArgs e)
         {
+            lblConfirmPassword.Visibility = Visibility.Visible;
+            txtConfirmPassword.Visibility = Visibility.Visible;
+            btnLogin.Visibility = Visibility.Collapsed;
+            btnRegister.Visibility = Visibility.Visible;
 
+            lblAlreadyHave.Visibility = Visibility.Visible;
+            btnAlreadyHave.Visibility = Visibility.Visible;
+
+            lblDontHave.Visibility = Visibility.Collapsed;
+            btnDontHave.Visibility = Visibility.Collapsed;
+
+            lblTitle.Content = "Register";
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -38,7 +49,25 @@ namespace Dusza_Fogadas
 
         private void btnAlreadyHave_Click(object sender, RoutedEventArgs e)
         {
+            lblConfirmPassword.Visibility = Visibility.Collapsed;
+            txtConfirmPassword.Visibility = Visibility.Collapsed;
+            btnLogin.Visibility = Visibility.Visible;
+            btnRegister.Visibility = Visibility.Collapsed;
 
+            lblAlreadyHave.Visibility = Visibility.Collapsed;
+            btnAlreadyHave.Visibility = Visibility.Collapsed;
+
+            lblDontHave.Visibility = Visibility.Visible;
+            btnDontHave.Visibility = Visibility.Visible;
+
+            lblTitle.Content = "Logn";
+        }
+
+        private void btnTest_Click(object sender, RoutedEventArgs e)
+        {
+            Menu menu = new Menu();
+            this.Close();
+            menu.ShowDialog();
         }
     }
 }
