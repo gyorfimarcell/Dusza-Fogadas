@@ -30,5 +30,10 @@ namespace Dusza_Fogadas
             this.Close();
             newLoginWindow.ShowDialog();
         }
+
+        private void btnCreateGame_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
