@@ -9,6 +9,7 @@ namespace Dusza_Fogadas
     /// </summary>
     public partial class App : Application
     {
+        public const string DB_CONNECTION = "server=127.0.0.1;uid=root;pwd=;database=dusza";
     }
 
 }
