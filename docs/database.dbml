@@ -1,0 +1,46 @@
+enum role {
+  player
+  organizer
+}
+
+Table users {
+  id integer [pk, increment]
+  username varchar
+  password varchar
+  salt varchar
+  role role
+  balance double
+}
+
+Table games {
+  id integer [pk, increment]
+  name varchar
+  organizerId int [ref: > users.id]
+}
+
+Table gameSubjects {
+  id integer [pk, increment]
+  gameId integer [ref: > games.id]
+  name varchar
+}
+
+Table gameEvents {
+  id integer [pk, increment]
+  gameId integer [ref: > games.id]
+  name varchar
+}
+
+Table gameResults {
+  subjectId int [ref: > gameSubjects.id]
+  eventId int [ref: > gameEvents.id]
+  outcome varchar
+}
+
+Table bets {
+  id integer [pk, increment]
+  userId int [ref: > users.id]
+  subjectId int [ref: > gameSubjects.id]
+  eventId int [ref: > gameEvents.id]
+  outcome varchar
+  amount int
+}
