@@ -1,0 +1,35 @@
+﻿<Window x:Class="Dusza_Fogadas.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dusza_Fogadas"
+        mc:Ignorable="d"
+        Title="Menu" Height="600" Width="410">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.6*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label BorderThickness="0 0 0 3" Padding="15 0 0 7" BorderBrush="Black" FontSize="30" VerticalAlignment="Center">Main Menu</Label>
+
+        <Button x:Name="btnNewGame" Click="btnNewGame_Click" BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="25" Width="300" Height="50" Grid.Row="1" Padding="5 0 0 0">Create new Game</Button>
+
+        <Button x:Name="btnBet" Click="btnBet_Click" BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="25" Width="300" Height="50" Grid.Row="2" Padding="5 0 0 0">Make a bet</Button>
+
+        <Button x:Name="btnEndGame" Click="btnEndGame_Click" BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="25" Width="300" Height="50" Grid.Row="3" Padding="5 0 0 0">End a Game</Button>
+
+        <Button BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="25" Width="300" Height="50" Grid.Row="4" Padding="5 0 0 0">Lekérdezések (még nem)</Button>
+
+        <Button x:Name="btnChangeAccount" Click="btnChangeAccount_Click" BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="25" Width="300" Height="50" Grid.Row="5" Padding="5 0 0 0">Change Account</Button>
+
+        <Button x:Name="btnExit" Click="btnExit_Click" BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="25" Width="300" Height="50" Grid.Row="7" Padding="5 0 0 0">Exit</Button>
+    </Grid>
+</Window>

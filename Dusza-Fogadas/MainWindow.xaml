@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dusza_Fogadas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="400">
+        Title="MainWindow" Height="600" Width="410">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1.1*"></RowDefinition>
@@ -18,12 +18,13 @@
             <RowDefinition Height="0.5*"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="1.1*"></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center">Login</Label>
+        <Label x:Name="lblTitle" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Login"></Label>
 
         <Label FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left" Grid.Row="1">Username</Label>
-        <TextBox Height="50" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="2" Background="LightGray">
+        <TextBox x:Name="txtUsername" Height="50" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="2" Background="LightGray">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -32,7 +33,7 @@
         </TextBox>
 
         <Label FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left"  Grid.Row="3">Password</Label>
-        <TextBox Height="50" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="4" Background="LightGray">
+        <TextBox x:Name="txtPassword" Height="50" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="4" Background="LightGray">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -41,7 +42,7 @@
         </TextBox>
 
         <Label x:Name="lblConfirmPassword" Visibility="Collapsed" FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left"  Grid.Row="5">Confirm Password</Label>
-        <TextBox x:Name="txtConfirmPassword" Visibility="Collapsed" Height="50" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="6" Background="LightGray">
+        <TextBox x:Name="txtConfirmPassword" FontSize="20" VerticalContentAlignment="Center" Visibility="Collapsed" Height="50" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="6" Background="LightGray">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -70,5 +71,7 @@
 
         <Label x:Name="lblAlreadyHave" Visibility="Collapsed" Grid.Row="9" FontSize="18" HorizontalAlignment="Center">Don't have an account yet?</Label>
         <Button x:Name="btnAlreadyHave" Click="btnAlreadyHave_Click" Visibility="Collapsed" Grid.Row="9" FontSize="15" Margin="0 20 0 0" Height="25" Width="200" Content="Click here to log in" BorderThickness="0 0 0 2" Background="White"></Button>
+
+        <Button x:Name="btnTest" Grid.Row="10" FontSize="20" Click="btnTest_Click">SkipLogin (csak tesztre)</Button>
     </Grid>
 </Window>
