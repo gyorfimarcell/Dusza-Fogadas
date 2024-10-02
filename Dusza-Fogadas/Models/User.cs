@@ -13,6 +13,8 @@ namespace Dusza_Fogadas.Models
 
         public static List<User> Users = UserDb.GetAllUsers();
 
+        public static User? CurrentUser = null;
+
         public int Id { get; private set; }
         public string Username { get; private set; }
         public string HashedPassword { get; private set; }
@@ -32,6 +34,7 @@ namespace Dusza_Fogadas.Models
         }
 
         public List<Game> OrganizedGames => Game.Games.Where(x => x.OrganizerId == Id).ToList();
+        public List<Bet> Bets => BetDb.GetAllBets().Where(x => x.UserId == Id).ToList();
 
         public bool CheckPassword(string password)
         {
@@ -41,7 +44,18 @@ namespace Dusza_Fogadas.Models
             );
         }
 
-        public static User RegisterUser(string username, string plaintextPassword)
+        public void SetBalance(double newBalance)
+        {
+            if (newBalance < 0)
+            {
+                throw new ArgumentException();
+            }
+
+            UserDb.ChangeUserBalance(Id, newBalance);
+            Balance = newBalance;
+        }
+
+        public static void RegisterUser(string username, string plaintextPassword)
         {
             if (Users.Any(x => x.Username == username))
             {
@@ -63,15 +77,26 @@ namespace Dusza_Fogadas.Models
 
             Users.Add(user);
 
-            return user;
+            CurrentUser = user;
         }
 
-        public static User? TryLogin(string username, string password)
+        public static bool TryLogin(string username, string password)
         {
             User user = Users.Find(x => x.Username == username);
-            if (user == null) return null;
+            if (user == null) return false;
 
-            return user.CheckPassword(password) ? user : null;
+            if (user.CheckPassword(password))
+            {
+                CurrentUser = user;
+                return true;
+            }
+
+            return false;
+        }
+
+        public static void Logout()
+        {
+            CurrentUser = null;
         }
 
         private static string HashPassword(string plaintextPassword, string salt)

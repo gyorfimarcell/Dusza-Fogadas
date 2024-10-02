@@ -29,9 +29,19 @@ namespace Dusza_Fogadas.Models
 
         public static Game NewGame(string name, List<string> subjects, List<string> events)
         {
+            if (User.CurrentUser == null || User.CurrentUser.Role != UserRole.Organizer)
+            {
+                throw new ArgumentException("User is not an organizer");
+            }
+
+            if (Games.Any(x => x.Name == name))
+            {
+                throw new ArgumentException("A game with this name already exists!");
+            }
+
             Game game = new() {
                 Name = name,
-                OrganizerId = 1 //TODO
+                OrganizerId = User.CurrentUser.Id
             };
 
             int id = GameDb.SaveNewGame(game);
