@@ -66,6 +66,14 @@ namespace Dusza_Fogadas.Models
             return user;
         }
 
+        public static User? TryLogin(string username, string password)
+        {
+            User user = Users.Find(x => x.Username == username);
+            if (user == null) return null;
+
+            return user.CheckPassword(password) ? user : null;
+        }
+
         private static string HashPassword(string plaintextPassword, string salt)
         {
             Byte[] saltBytes = Convert.FromHexString(salt);

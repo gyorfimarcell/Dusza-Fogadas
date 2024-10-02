@@ -8,7 +8,7 @@ namespace Dusza_Fogadas.Models
 {
     public class Game
     {
-        public static List<Game> Games = [];
+        public static List<Game> Games = GameDb.GetAllGames();
 
         public int Id { get; private set; }
         public string Name { get; private set; }
