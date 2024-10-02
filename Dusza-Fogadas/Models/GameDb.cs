@@ -134,5 +134,26 @@ namespace Dusza_Fogadas.Models
                 }
             }
         }
+
+        public static void SaveResults(List<GameResult> results)
+        {
+            MySqlCommand cmd = new("INSERT INTO gameresults (subjectId, eventId, outcome) VALUES (@subject, @event, @outcome)");
+            cmd.Parameters.Add("subject", MySqlDbType.Int32);
+            cmd.Parameters.Add("event", MySqlDbType.Int32);
+            cmd.Parameters.Add("outcome", MySqlDbType.String);
+
+            using (MySqlConnection con = new(App.DB_CONNECTION))
+            {
+                cmd.Connection = con;
+                con.Open();
+                foreach (GameResult result in results)
+                {
+                    cmd.Parameters["subject"].Value = result.SubjectId;
+                    cmd.Parameters["event"].Value = result.EventId;
+                    cmd.Parameters["outcome"].Value = result.Outcome;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
