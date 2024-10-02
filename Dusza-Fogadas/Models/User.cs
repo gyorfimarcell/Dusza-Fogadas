@@ -31,6 +31,8 @@ namespace Dusza_Fogadas.Models
             Balance = balance;
         }
 
+        public List<Game> OrganizedGames => Game.Games.Where(x => x.OrganizerId == Id).ToList();
+
         public bool CheckPassword(string password)
         {
             return CryptographicOperations.FixedTimeEquals(
