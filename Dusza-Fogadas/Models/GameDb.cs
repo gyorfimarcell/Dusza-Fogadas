@@ -99,20 +99,40 @@ namespace Dusza_Fogadas.Models
             return events;
         }
 
-        public static void SaveSubjects(int gameId)
+        public static void SaveSubjects(int gameId, List<string> subjects)
         {
             MySqlCommand cmd = new("INSERT INTO gamesubjects (gameId, name) VALUES (@game, @name)");
-            cmd.Parameters.Add("game", MySqlDbType.Int32);
+            cmd.Parameters.AddWithValue("game", gameId);
             cmd.Parameters.Add("name", MySqlDbType.String);
 
-            //using (MySqlConnection con = new(App.DB_CONNECTION))
-            //{
-            //    cmd.Connection = con;
-            //    con.Open();
-            //    cmd.ExecuteNonQuery();
-            //    return Convert.ToInt32(cmd.LastInsertedId);
-            //}
-            
+            using (MySqlConnection con = new(App.DB_CONNECTION))
+            {
+                cmd.Connection = con;
+                con.Open();
+                foreach (string subject in subjects)
+                {
+                    cmd.Parameters["name"].Value = subject;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void SaveEvents(int gameId, List<string> events)
+        {
+            MySqlCommand cmd = new("INSERT INTO gameevents (gameId, name) VALUES (@game, @name)");
+            cmd.Parameters.AddWithValue("game", gameId);
+            cmd.Parameters.Add("name", MySqlDbType.String);
+
+            using (MySqlConnection con = new(App.DB_CONNECTION))
+            {
+                cmd.Connection = con;
+                con.Open();
+                foreach (string gameEvent in events)
+                {
+                    cmd.Parameters["name"].Value = gameEvent;
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
