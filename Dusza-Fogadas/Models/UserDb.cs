@@ -54,5 +54,19 @@ namespace Dusza_Fogadas.Models
                 return Convert.ToInt32(cmd.LastInsertedId);
             }
         }
+
+        public static void ChangeUserBalance(int userId, double newBalance)
+        {
+            MySqlCommand cmd = new("UPDATE users SET balance = @new WHERE id = @id");
+            cmd.Parameters.AddWithValue("id", userId);
+            cmd.Parameters.AddWithValue("new", newBalance);
+
+            using (MySqlConnection con = new(App.DB_CONNECTION))
+            {
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

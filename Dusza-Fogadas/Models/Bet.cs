@@ -36,6 +36,21 @@ namespace Dusza_Fogadas.Models
 
         public static Bet PlaceBet(int gameId, int subjectId, int eventId, string outcome, int amount)
         {
+            if (User.CurrentUser == null || User.CurrentUser.Role != UserRole.Player)
+            {
+                throw new ArgumentException("User is not a player!");
+            }
+
+            if (User.CurrentUser.Balance < amount)
+            {
+                throw new ArgumentException("User doesn't have enough money!");
+            }
+
+            if (User.CurrentUser.Bets.Any(x => x.SubjectId == subjectId && x.EventId == eventId))
+            {
+                throw new ArgumentException("User already placed a bet!");
+            }
+
             Bet bet = new()
             {
                 GameId = gameId,
@@ -45,14 +60,10 @@ namespace Dusza_Fogadas.Models
                 Amount = amount
             };
 
-            // TODO: check if user already placed bet
-            // TODO: check if user has enough money
-
-            //GameSubject subject = game.Subjects.Find(x => x.Id == subjectId);
-            //GameEvent gameEvent = game.Events.Find(x => x.Id == eventId);
-
             int id = BetDb.SaveNewBet(bet);
             bet.Id = id;
+
+            User.CurrentUser.SetBalance(User.CurrentUser.Balance - amount);
 
             return bet;
         }
