@@ -15,16 +15,16 @@ using System.Windows.Shapes;
 namespace Dusza_Fogadas
 {
     /// <summary>
-    /// Interaction logic for BetWindow.xaml
+    /// Interaction logic for EndGame.xaml
     /// </summary>
-    public partial class BetWindow : Window
+    public partial class EndGame : Window
     {
-        public BetWindow()
+        public EndGame()
         {
             InitializeComponent();
         }
 
-        private void btnBet_Click(object sender, RoutedEventArgs e)
+        private void btnEndGame_Click(object sender, RoutedEventArgs e)
         {
 
         }
