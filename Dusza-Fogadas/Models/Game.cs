@@ -27,6 +27,28 @@ namespace Dusza_Fogadas.Models
 
         public User Organizer => User.Users.Find(x => x.Id == OrganizerId);
 
+        public void CloseGame(List<GameResult> results)
+        {
+            // TODO: check if game is already closed
+
+            GameDb.SaveResults(results);
+
+            List<Bet> bets = BetDb.GetAllBets();
+
+            foreach (GameResult result in results)
+            {
+                List<Bet> filteredBets = bets.Where(x => x.SubjectId == result.SubjectId && x.EventId == result.EventId).ToList();
+                if (filteredBets.Count == 0) return;
+
+                double multiplier = 1 + (5 / Math.Pow(2, filteredBets.Count - 1));
+
+                foreach (Bet winner in filteredBets.Where(x => x.Outcome == result.Outcome))
+                {
+                    winner.User.SetBalance(winner.User.Balance + (winner.Amount * multiplier));
+                }
+            }
+        }
+
         public static Game NewGame(string name, List<string> subjects, List<string> events)
         {
             if (User.CurrentUser == null || User.CurrentUser.Role != UserRole.Organizer)
