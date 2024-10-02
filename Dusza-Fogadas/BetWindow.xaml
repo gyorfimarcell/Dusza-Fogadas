@@ -34,18 +34,18 @@
         <Border BorderThickness="0 0 0 1" BorderBrush="Black" Grid.ColumnSpan="6"></Border>
 
         <Label FontSize="25" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2">Game Name</Label>
-        <ComboBox x:Name="cbGameName" FontSize="25" Grid.Column="3" Height="50" Margin="10 0 10 0" Grid.Row="2"></ComboBox>
+        <ComboBox x:Name="cbGameName" FontSize="25" Grid.Column="3" Grid.ColumnSpan="2" Height="50" Margin="10 0 10 0" Grid.Row="2"></ComboBox>
 
         <Label FontSize="25" VerticalAlignment="Center" Grid.Row="3" Grid.Column="2">Subject</Label>
-        <ComboBox x:Name="cbSubject" FontSize="25" Grid.Column="3" Height="50" Margin="10 0 10 0" Grid.Row="3"></ComboBox>
+        <ComboBox x:Name="cbSubject" FontSize="25" Grid.Column="3" Grid.ColumnSpan="2" Height="50" Margin="10 0 10 0" Grid.Row="3"></ComboBox>
 
         <Label FontSize="25" VerticalAlignment="Center" Grid.Row="4" Grid.Column="2">Event</Label>
-        <ComboBox x:Name="cbEvent" FontSize="25" Grid.Column="3" Height="50" Margin="10 0 10 0" Grid.Row="4"></ComboBox>
+        <ComboBox x:Name="cbEvent" FontSize="25" Grid.Column="3" Grid.ColumnSpan="2" Height="50" Margin="10 0 10 0" Grid.Row="4"></ComboBox>
 
         <Label FontSize="25" VerticalAlignment="Center" Grid.Row="5" Grid.Column="2">Points</Label>
-        <TextBox x:Name="txtBetAmount" FontSize="25" Grid.Column="3" Height="50" Margin="10 0 10 0" Grid.Row="5"></TextBox>
+        <TextBox x:Name="txtBetAmount" FontSize="25" Grid.Column="3" Grid.ColumnSpan="2" Height="50" Margin="10 0 10 0" Grid.Row="5"></TextBox>
 
-        <Button Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Width="200" Height="50" FontSize="25">Bet</Button>
+        <Button x:Name="btnBet" Click="btnBet_Click" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Width="200" Height="50" FontSize="25">Bet</Button>
 
     </Grid>
 </Window>

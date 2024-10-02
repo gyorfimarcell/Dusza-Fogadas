@@ -23,5 +23,10 @@ namespace Dusza_Fogadas
         {
             InitializeComponent();
         }
+
+        private void btnBet_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
