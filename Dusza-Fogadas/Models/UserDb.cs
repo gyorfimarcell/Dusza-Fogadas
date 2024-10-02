@@ -43,7 +43,7 @@ namespace Dusza_Fogadas.Models
             cmd.Parameters.AddWithValue("username", user.Username);
             cmd.Parameters.AddWithValue("password", user.HashedPassword);
             cmd.Parameters.AddWithValue("salt", user.Salt);
-            cmd.Parameters.AddWithValue("role", user.Role);
+            cmd.Parameters.AddWithValue("role", user.Role.ToString().ToLower());
             cmd.Parameters.AddWithValue("balance", user.Balance);
 
             using (MySqlConnection con = new(App.DB_CONNECTION))
