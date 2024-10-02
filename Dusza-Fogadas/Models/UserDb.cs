@@ -27,7 +27,7 @@ namespace Dusza_Fogadas.Models
                             username: reader.GetString("username"),
                             hashedPassword: reader.GetString("password"),
                             salt: reader.GetString("salt"),
-                            role: (UserRole)Enum.Parse(typeof(UserRole), reader.GetString("role")),
+                            role: DbStringToRole(reader.GetString("role")),
                             balance: reader.GetDouble("balance")
                         ));
                     }
@@ -43,7 +43,7 @@ namespace Dusza_Fogadas.Models
             cmd.Parameters.AddWithValue("username", user.Username);
             cmd.Parameters.AddWithValue("password", user.HashedPassword);
             cmd.Parameters.AddWithValue("salt", user.Salt);
-            cmd.Parameters.AddWithValue("role", user.Role.ToString().ToLower());
+            cmd.Parameters.AddWithValue("role", RoleToDbString(user.Role));
             cmd.Parameters.AddWithValue("balance", user.Balance);
 
             using (MySqlConnection con = new(App.DB_CONNECTION))
@@ -67,6 +67,16 @@ namespace Dusza_Fogadas.Models
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        public static string RoleToDbString(UserRole role)
+        {
+            return role == UserRole.Player ? "player" : "organizer";
+        }
+
+        public static UserRole DbStringToRole(string role)
+        {
+            return role == "player" ? UserRole.Player : UserRole.Organizer;
         }
     }
 }
