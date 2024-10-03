@@ -53,6 +53,7 @@ namespace Dusza_Fogadas.Models
 
             Bet bet = new()
             {
+                UserId = User.CurrentUser.Id,
                 GameId = gameId,
                 SubjectId = subjectId,
                 EventId = eventId,

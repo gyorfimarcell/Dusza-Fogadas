@@ -12,7 +12,7 @@ namespace Dusza_Fogadas.Models
         public static List<Bet> GetAllBets()
         {
             List<Bet> bets = [];
-            MySqlCommand cmd = new("SELECT bets.id, bets.userId, bets.subjectId, bets.eventId, bets.outcome, bets.amount, gameId FROM bets JOIN gamesubjects ON subjectId = subject.id");
+            MySqlCommand cmd = new("SELECT bets.id, bets.userId, bets.subjectId, bets.eventId, bets.outcome, bets.amount, gameId FROM bets JOIN gamesubjects ON subjectId = gamesubjects.id");
 
             using (MySqlConnection con = new(App.DB_CONNECTION))
             {

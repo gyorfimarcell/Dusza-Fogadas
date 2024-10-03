@@ -23,7 +23,6 @@ namespace Dusza_Fogadas
         public BetWindow()
         {
             InitializeComponent();
-
             cbGame.ItemsSource = Game.Games;
             
         }
@@ -45,8 +44,19 @@ namespace Dusza_Fogadas
  
             string outcome = txtOutcome.Text;
             int amount = Convert.ToInt32(txtBetAmount.Text);
+            try
+            {
+                Bet.PlaceBet((cbGame.SelectedItem as Game).Id, (cbSubject.SelectedItem as GameSubject).Id, (cbEvent.SelectedItem as GameEvent).Id, outcome, amount);
+                MessageBox.Show("Successfully placed bet!");
 
-            Bet.PlaceBet((cbGame.SelectedItem as Game).Id, (cbSubject.SelectedItem as GameSubject).Id, (cbEvent.SelectedItem as GameEvent).Id, outcome, amount);
+                txtBetAmount.Text = "";
+                txtOutcome.Text = "";
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
             
         }
 
@@ -60,11 +70,13 @@ namespace Dusza_Fogadas
         private void CheckIfCanBetCB(object sender, SelectionChangedEventArgs e)
         {
             if (canBet()) { btnBet.IsEnabled = true;}
+            else { btnBet.IsEnabled = false;}
         }
 
         private void CheckIfCanBetTXT(object sender, TextChangedEventArgs e)
         {
             if (canBet()) { btnBet.IsEnabled = true; }
+            else { btnBet.IsEnabled = false; }
         }
 
         private bool canBet()
