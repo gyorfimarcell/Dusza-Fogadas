@@ -54,7 +54,45 @@ namespace Dusza_Fogadas
                 return;
             }
 
-            // TODO: check for at least one event and subject
+            if (subjects.Count < 1 || events.Count < 1)
+            {
+                MessageBox.Show("You must set at least 1 subject and event!");
+                return;
+            }
+
+            Game.NewGame(txtGameName.Text, subjects.ToList(), events.ToList());
+
+            Menu menu = new Menu();
+            this.Close();
+            menu.Show();
+        }
+
+        private void btnSubjectAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtSubject.Text != "" && !subjects.Contains(txtSubject.Text))
+            {
+                subjects.Add(txtSubject.Text);
+                txtSubject.Clear();
+            }
+        }
+
+        private void btnEventAdd_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtEvent.Text != "" && !events.Contains(txtEvent.Text))
+            {
+                events.Add(txtEvent.Text);
+                txtEvent.Clear();
+            }
+        }
+
+        private void lbSubjects_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            subjects.Remove(lbSubjects.SelectedItem.ToString());
+        }
+
+        private void lbEvents_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            events.Remove(lbEvents.SelectedItem.ToString());
         }
     }
 }

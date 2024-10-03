@@ -39,20 +39,32 @@
         <Label FontSize="25" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">Subjects</Label>
 
         <DockPanel Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="15 0 15 0">
-            <Button Width="30" Height="30" DockPanel.Dock="Right">+</Button>
-            <TextBox x:Name="txtSubject" Text="asdasd" Margin="0 0 15 0" VerticalContentAlignment="Center"/>
+            <Button x:Name="btnSubjectAdd" Width="30" Height="30" DockPanel.Dock="Right" Click="btnSubjectAdd_Click">+</Button>
+            <TextBox x:Name="txtSubject" Margin="0 0 15 0" VerticalContentAlignment="Center"/>
         </DockPanel>
 
         <Label FontSize="25" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">Events</Label>
 
         <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="15 0 15 0">
-            <Button Width="30" Height="30" DockPanel.Dock="Right"></Button>
-            <TextBox x:Name="txtEvent" Text="asdasd" Margin="0 0 15 0" VerticalContentAlignment="Center"/>
+            <Button x:Name="btnEventAdd" Width="30" Height="30" DockPanel.Dock="Right" Click="btnEventAdd_Click">+</Button>
+            <TextBox x:Name="txtEvent" Margin="0 0 15 0" VerticalContentAlignment="Center"/>
         </DockPanel>
 
 
-        <ListBox x:Name="lbSubjects" Grid.Row="4" Background="LightGray" Margin="20 10 20 10"></ListBox>
-        <ListBox x:Name="lbEvents" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Background="LightGray" Margin="20 10 20 10"></ListBox>
+        <ListBox x:Name="lbSubjects" Grid.Row="4" Background="LightGray" Margin="20 10 20 10">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="lbSubjects_MouseDoubleClick"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <ListBox x:Name="lbEvents" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Background="LightGray" Margin="20 10 20 10">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <EventSetter Event="MouseDoubleClick" Handler="lbEvents_MouseDoubleClick"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
 
         <Button x:Name="btnCreateGame" Click="btnCreateGame_Click" Width="200" Height="55" FontSize="20" Grid.Row="5" Grid.ColumnSpan="4">Create Game</Button>
     </Grid>
