@@ -13,5 +13,10 @@ namespace Dusza_Fogadas.Models
         public string Name { get; private set; } = name;
 
         public Game Game => Game.Games.Find(x => x.Id == GameId);
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

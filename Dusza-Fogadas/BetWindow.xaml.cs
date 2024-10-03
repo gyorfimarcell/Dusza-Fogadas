@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Dusza_Fogadas.Models;
 
 namespace Dusza_Fogadas
 {
@@ -23,11 +24,30 @@ namespace Dusza_Fogadas
         {
             InitializeComponent();
 
+            cbGame.ItemsSource = Game.Games;
+            
+        }
+        private void cbGame_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            cbEvent.IsEnabled = true;
+            cbSubject.IsEnabled = true;
+            txtOutcome.IsEnabled = true;
+            txtBetAmount.IsEnabled = true;
+
+            cbEvent.ItemsSource = (cbGame.SelectedItem as Game).Events;
+            cbSubject.ItemsSource = (cbGame.SelectedItem as Game).Subjects;
+
+
         }
 
         private void btnBet_Click(object sender, RoutedEventArgs e)
         {
-            string chosenGame = cbGameName.SelectedItem.ToString();
+ 
+            string outcome = txtOutcome.Text;
+            int amount = Convert.ToInt32(txtBetAmount.Text);
+
+            Bet.PlaceBet((cbGame.SelectedItem as Game).Id, (cbSubject.SelectedItem as GameSubject).Id, (cbEvent.SelectedItem as GameEvent).Id, outcome, amount);
+            
         }
 
         private void btnBackToMenu_Click(object sender, RoutedEventArgs e)
@@ -35,6 +55,26 @@ namespace Dusza_Fogadas
             Menu menu = new Menu();
             this.Close();
             menu.Show();
+        }
+
+        private void CheckIfCanBetCB(object sender, SelectionChangedEventArgs e)
+        {
+            if (canBet()) { btnBet.IsEnabled = true;}
+        }
+
+        private void CheckIfCanBetTXT(object sender, TextChangedEventArgs e)
+        {
+            if (canBet()) { btnBet.IsEnabled = true; }
+        }
+
+        private bool canBet()
+        {
+            if (cbEvent.SelectedIndex != -1 && cbSubject.SelectedIndex != -1 && txtBetAmount.Text != "" && txtOutcome.Text != "")
+            {
+                return true;
+            }
+            else
+                return false;
         }
     }
 }
