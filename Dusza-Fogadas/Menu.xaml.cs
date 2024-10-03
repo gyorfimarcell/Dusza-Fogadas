@@ -23,6 +23,23 @@ namespace Dusza_Fogadas
         public Menu()
         {
             InitializeComponent();
+
+            if (User.CurrentUser == null)
+            {
+                throw new Exception("User is null!");
+            }
+            switch (User.CurrentUser.Role)
+            {
+                case UserRole.Player:
+                    btnNewGame.Visibility = Visibility.Collapsed;
+                    btnEndGame.Visibility = Visibility.Collapsed;
+                    break;
+                case UserRole.Organizer:
+                    btnBet.Visibility = Visibility.Collapsed;
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
