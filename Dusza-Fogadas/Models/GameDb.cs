@@ -52,7 +52,8 @@ namespace Dusza_Fogadas.Models
         public static List<GameSubject> GetSubjects(int gameId)
         {
             List<GameSubject> subjects = [];
-            MySqlCommand cmd = new("SELECT * FROM gamesubjects");
+            MySqlCommand cmd = new("SELECT * FROM gamesubjects WHERE gameId = @game");
+            cmd.Parameters.AddWithValue("game", gameId);
 
             using (MySqlConnection con = new(App.DB_CONNECTION))
             {
@@ -77,7 +78,8 @@ namespace Dusza_Fogadas.Models
         public static List<GameEvent> GetEvents(int gameId)
         {
             List<GameEvent> events = [];
-            MySqlCommand cmd = new("SELECT * FROM gameevents");
+            MySqlCommand cmd = new("SELECT * FROM gameevents WHERE gameId = @game");
+            cmd.Parameters.AddWithValue("game", gameId);
 
             using (MySqlConnection con = new(App.DB_CONNECTION))
             {
