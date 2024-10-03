@@ -22,16 +22,19 @@ namespace Dusza_Fogadas
         public BetWindow()
         {
             InitializeComponent();
+
         }
 
         private void btnBet_Click(object sender, RoutedEventArgs e)
         {
-
+            string chosenGame = cbGameName.SelectedItem.ToString();
         }
 
         private void btnBackToMenu_Click(object sender, RoutedEventArgs e)
         {
-
+            Menu menu = new Menu();
+            this.Close();
+            menu.Show();
         }
     }
 }
