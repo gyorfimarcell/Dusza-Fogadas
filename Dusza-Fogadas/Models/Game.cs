@@ -75,5 +75,11 @@ namespace Dusza_Fogadas.Models
 
             return game;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+
     }
 }
