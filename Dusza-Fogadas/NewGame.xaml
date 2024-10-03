@@ -11,6 +11,7 @@
             <RowDefinition Height="1.3*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="0.9*"></RowDefinition>
+            <RowDefinition Height="0.9*"></RowDefinition>
             <RowDefinition Height="3*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -34,22 +35,25 @@
             <TextBox x:Name="txtGameName" VerticalContentAlignment="Center" FontSize="25" Width="275" Background="LightGray"></TextBox>
         </StackPanel>
 
-        
-        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label FontSize="25" Margin="0 0 15 0">Subjects</Label>
-            <Button Width="30" Height="30"></Button>
-        </StackPanel>
 
-        
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label FontSize="25" Margin="0 0 15 0">Events</Label>
-            <Button Width="30" Height="30"></Button>
-        </StackPanel>
+        <Label FontSize="25" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">Subjects</Label>
+
+        <DockPanel Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="15 0 15 0">
+            <Button Width="30" Height="30" DockPanel.Dock="Right">+</Button>
+            <TextBox x:Name="txtSubject" Text="asdasd" Margin="0 0 15 0" VerticalContentAlignment="Center"/>
+        </DockPanel>
+
+        <Label FontSize="25" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">Events</Label>
+
+        <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="15 0 15 0">
+            <Button Width="30" Height="30" DockPanel.Dock="Right"></Button>
+            <TextBox x:Name="txtEvent" Text="asdasd" Margin="0 0 15 0" VerticalContentAlignment="Center"/>
+        </DockPanel>
 
 
-        <ListBox x:Name="lbSubjects" Grid.Row="3" Background="LightGray" Margin="20 10 20 10"></ListBox>
-        <ListBox x:Name="lbEvents" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Background="LightGray" Margin="20 10 20 10"></ListBox>
+        <ListBox x:Name="lbSubjects" Grid.Row="4" Background="LightGray" Margin="20 10 20 10"></ListBox>
+        <ListBox x:Name="lbEvents" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Background="LightGray" Margin="20 10 20 10"></ListBox>
 
-        <Button x:Name="btnCreateGame" Click="btnCreateGame_Click" Width="200" Height="55" FontSize="20" Grid.Row="4" Grid.ColumnSpan="4">Create Game</Button>
+        <Button x:Name="btnCreateGame" Click="btnCreateGame_Click" Width="200" Height="55" FontSize="20" Grid.Row="5" Grid.ColumnSpan="4">Create Game</Button>
     </Grid>
 </Window>
