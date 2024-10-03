@@ -24,7 +24,6 @@
             
             <RowDefinition></RowDefinition>
             <RowDefinition Height="1.1*"></RowDefinition>
-            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
         <Label x:Name="lblTitle" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Login"></Label>
@@ -41,12 +40,13 @@
         <Label x:Name="lblUsernameError" Margin="10 0 0 0" FontSize="15" VerticalAlignment="Top" Foreground="Red" Grid.Row="3"></Label>
 
         <Label FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left"  Grid.Row="4">Password</Label>
+        
         <PasswordBox x:Name="txtPassword" GotFocus="RemoveErrorOutline" PasswordChar="*" Height="50" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="5" Background="LightGray">
         </PasswordBox>
 
         <Label x:Name="lblPasswordError" Margin="10 0 0 0" FontSize="15" VerticalAlignment="Top" Foreground="Red" Grid.Row="6"></Label>
 
-        <Label x:Name="lblConfirmPassword" Visibility="Visible" FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left" Grid.Row="7">Confirm Password</Label>
+        <Label x:Name="lblConfirmPassword" Visibility="Collapsed" FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left" Grid.Row="7">Confirm Password</Label>
         <PasswordBox x:Name="txtConfirmPassword" GotFocus="RemoveErrorOutline" Visibility="Collapsed" PasswordChar="*" FontSize="20" VerticalContentAlignment="Center"  Height="50" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="8" Background="LightGray">
         </PasswordBox>
 
@@ -85,7 +85,5 @@
                 </Style>
             </Button.Resources>
         </Button>
-
-        <Button x:Name="btnTest" Grid.Row="12" FontSize="20" Click="btnTest_Click">SkipLogin (csak tesztre)</Button>
     </Grid>
 </Window>

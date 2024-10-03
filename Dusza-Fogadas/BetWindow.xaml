@@ -23,11 +23,12 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="0.5*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label VerticalAlignment="Center" FontSize="30" Grid.ColumnSpan="3">Make a Bet</Label>
+        <Label VerticalAlignment="Center" Margin="15 0 0 0" FontSize="30" Grid.ColumnSpan="3">Make a Bet</Label>
         <Label x:Name="lblUsername" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">NevNevNev</Label>
         <Label x:Name="lblPoints" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">50</Label>
         <Button x:Name="btnBackToMenu" Click="btnBackToMenu_Click" Grid.Column="5" Width="60" Height="60" FontSize="15">Menu</Button>
@@ -42,10 +43,13 @@
         <Label FontSize="25" VerticalAlignment="Center" Grid.Row="4" Grid.Column="2">Event</Label>
         <ComboBox x:Name="cbEvent" FontSize="25" Grid.Column="3" Grid.ColumnSpan="2" Height="50" Margin="10 0 10 0" Grid.Row="4"></ComboBox>
 
-        <Label FontSize="25" VerticalAlignment="Center" Grid.Row="5" Grid.Column="2">Points</Label>
-        <TextBox x:Name="txtBetAmount" FontSize="25" Grid.Column="3" Grid.ColumnSpan="2" Height="50" Margin="10 0 10 0" Grid.Row="5"></TextBox>
+        <Label FontSize="25" VerticalAlignment="Center" Grid.Row="5" Grid.Column="2">Outcome</Label>
+        <TextBox x:Name="txtOutcome" FontSize="25" Grid.Column="3" Grid.ColumnSpan="2" Height="50" Margin="10 0 10 0" Grid.Row="5"></TextBox>
 
-        <Button x:Name="btnBet" Click="btnBet_Click" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Width="200" Height="50" FontSize="25">Bet</Button>
+        <Label FontSize="25" VerticalAlignment="Center" Grid.Row="6" Grid.Column="2">Points</Label>
+        <TextBox x:Name="txtBetAmount" FontSize="25" Grid.Column="3" Grid.ColumnSpan="2" Height="50" Margin="10 0 10 0" Grid.Row="6"></TextBox>
+
+        <Button x:Name="btnBet" Click="btnBet_Click" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2" Width="200" Height="50" FontSize="25">Bet</Button>
 
     </Grid>
 </Window>

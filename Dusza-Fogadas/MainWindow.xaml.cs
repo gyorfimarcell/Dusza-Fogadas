@@ -134,21 +134,14 @@ namespace Dusza_Fogadas
             lblDontHave.Visibility = Visibility.Visible;
             btnDontHave.Visibility = Visibility.Visible;
 
-            lblTitle.Content = "Logn";
+            lblTitle.Content = "Login";
             ResetErrorMessages();
 
         }
 
-        private void btnTest_Click(object sender, RoutedEventArgs e)
-        {
-            Menu menu = new Menu();
-            this.Close();
-            menu.ShowDialog();
-        }
-
         private void ResetErrorMessages(){
             lblConfirmPasswordError.Content = "";
-            lblConfirmPassword.Content = "";
+            lblPasswordError.Content = "";
             lblUsernameError.Content = "";
         }
 
