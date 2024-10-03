@@ -5,26 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dusza_Fogadas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="410">
+        Title="MainWindow" Height="630" Width="410">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1.1*"></RowDefinition>
-            <RowDefinition Height="0.7*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="0.7*"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            
             <RowDefinition Height="0.7*"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="0.5*"></RowDefinition>
+            
+            <RowDefinition Height="0.7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            
+            <RowDefinition Height="0.7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            
             <RowDefinition></RowDefinition>
             <RowDefinition Height="1.1*"></RowDefinition>
-            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
         <Label x:Name="lblTitle" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Login"></Label>
 
         <Label FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left" Grid.Row="1">Username</Label>
-        <TextBox x:Name="txtUsername" Height="50" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="2" Background="LightGray">
+        <TextBox x:Name="txtUsername" GotFocus="RemoveErrorOutline" Height="50" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="2" Background="LightGray">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -32,25 +37,22 @@
             </TextBox.Resources>
         </TextBox>
 
-        <Label FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left"  Grid.Row="3">Password</Label>
-        <TextBox x:Name="txtPassword" Height="50" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="4" Background="LightGray">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
+        <Label x:Name="lblUsernameError" Margin="10 0 0 0" FontSize="15" VerticalAlignment="Top" Foreground="Red" Grid.Row="3"></Label>
 
-        <Label x:Name="lblConfirmPassword" Visibility="Collapsed" FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left"  Grid.Row="5">Confirm Password</Label>
-        <TextBox x:Name="txtConfirmPassword" FontSize="20" VerticalContentAlignment="Center" Visibility="Collapsed" Height="50" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="6" Background="LightGray">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
+        <Label FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left"  Grid.Row="4">Password</Label>
+        
+        <PasswordBox x:Name="txtPassword" GotFocus="RemoveErrorOutline" PasswordChar="*" Height="50" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="5" Background="LightGray">
+        </PasswordBox>
 
-        <Button x:Name="btnLogin" Click="btnLogin_Click" FontSize="25" Grid.Row="8" Width="375" Height="50" Content="Login">
+        <Label x:Name="lblPasswordError" Margin="10 0 0 0" FontSize="15" VerticalAlignment="Top" Foreground="Red" Grid.Row="6"></Label>
+
+        <Label x:Name="lblConfirmPassword" Visibility="Collapsed" FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left" Grid.Row="7">Confirm Password</Label>
+        <PasswordBox x:Name="txtConfirmPassword" GotFocus="RemoveErrorOutline" Visibility="Collapsed" PasswordChar="*" FontSize="20" VerticalContentAlignment="Center"  Height="50" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="8" Background="LightGray">
+        </PasswordBox>
+
+        <Label x:Name="lblConfirmPasswordError" Margin="10 0 0 0" FontSize="15" VerticalAlignment="Top" Foreground="Red" Grid.Row="9"></Label>
+
+        <Button x:Name="btnLogin" Click="btnLogin_Click" FontSize="25" Grid.Row="10" Width="375" Height="50" Content="Login">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -58,7 +60,7 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="btnRegister" Click="btnRegister_Click" Visibility="Collapsed" FontSize="25" Grid.Row="8" Width="375" Height="50" Content="Register">
+        <Button x:Name="btnRegister" Click="btnRegister_Click" Visibility="Collapsed" FontSize="25" Grid.Row="10" Width="375" Height="50" Content="Register">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -66,12 +68,22 @@
             </Button.Resources>
         </Button>
 
-        <Label x:Name="lblDontHave" Grid.Row="9" FontSize="18" HorizontalAlignment="Center">Don't have an account yet?</Label>
-        <Button x:Name="btnDontHave" Click="btnDontHave_Click" Grid.Row="9" FontSize="15" Margin="0 20 0 0" Height="25" Width="200" Content="Click here to register" BorderThickness="0 0 0 2" Background="White"></Button>
+        <Label x:Name="lblDontHave" Grid.Row="11" FontSize="18" HorizontalAlignment="Center">Don't have an account yet?</Label>
+        <Button x:Name="btnDontHave" Click="btnDontHave_Click" Grid.Row="11" FontSize="15" Margin="0 27 0 0" Height="25" Width="200" Content="Sign up!" BorderThickness="1 1 1 1" Background="White">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="6"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
-        <Label x:Name="lblAlreadyHave" Visibility="Collapsed" Grid.Row="9" FontSize="18" HorizontalAlignment="Center">Don't have an account yet?</Label>
-        <Button x:Name="btnAlreadyHave" Click="btnAlreadyHave_Click" Visibility="Collapsed" Grid.Row="9" FontSize="15" Margin="0 20 0 0" Height="25" Width="200" Content="Click here to log in" BorderThickness="0 0 0 2" Background="White"></Button>
-
-        <Button x:Name="btnTest" Grid.Row="10" FontSize="20" Click="btnTest_Click">SkipLogin (csak tesztre)</Button>
+        <Label x:Name="lblAlreadyHave" Visibility="Collapsed" Grid.Row="11" FontSize="18" HorizontalAlignment="Center">Already have an account?</Label>
+        <Button x:Name="btnAlreadyHave" Click="btnAlreadyHave_Click" Visibility="Collapsed" Grid.Row="11" FontSize="15" Margin="0 27 0 0" Height="25" Width="200" Content="Sign in!" BorderThickness="0 0 0 2" Background="White">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="6"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>

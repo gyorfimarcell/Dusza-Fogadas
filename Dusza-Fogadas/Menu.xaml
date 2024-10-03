@@ -13,8 +13,8 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
             <RowDefinition Height="0.6*"></RowDefinition>
+            <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -28,7 +28,7 @@
 
         <Button BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="25" Width="300" Height="50" Grid.Row="4" Padding="5 0 0 0">Lekérdezések (még nem)</Button>
 
-        <Button x:Name="btnChangeAccount" Click="btnChangeAccount_Click" BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="25" Width="300" Height="50" Grid.Row="5" Padding="5 0 0 0">Change Account</Button>
+        <Button x:Name="btnLogOut" Click="btnLogOut_Click" BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="25" Width="300" Height="50" Grid.Row="6" Padding="5 0 0 0">Log out</Button>
 
         <Button x:Name="btnExit" Click="btnExit_Click" BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Margin="15 0 0 0" FontSize="25" Width="300" Height="50" Grid.Row="7" Padding="5 0 0 0">Exit</Button>
     </Grid>

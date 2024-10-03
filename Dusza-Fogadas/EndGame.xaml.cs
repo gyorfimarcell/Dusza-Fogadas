@@ -31,7 +31,9 @@ namespace Dusza_Fogadas
 
         private void btnBackToMenu_Click(object sender, RoutedEventArgs e)
         {
-
+            Menu menu = new Menu();
+            this.Close();
+            menu.Show();
         }
     }
 }

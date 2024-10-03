@@ -35,9 +35,9 @@ namespace Dusza_Fogadas
 
         private void btnBackToMenu_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow newLoginWindow = new MainWindow();
+            Menu menu = new Menu();
             this.Close();
-            newLoginWindow.ShowDialog();
+            menu.Show();
         }
 
         private void btnCreateGame_Click(object sender, RoutedEventArgs e)
