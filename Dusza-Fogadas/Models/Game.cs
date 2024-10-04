@@ -27,9 +27,14 @@ namespace Dusza_Fogadas.Models
 
         public User Organizer => User.Users.Find(x => x.Id == OrganizerId);
 
+        public bool IsClosed => GameDb.GetAllResults().Any(x => x.SubjectId == Subjects[0].Id);
+
         public void CloseGame(List<GameResult> results)
         {
-            // TODO: check if game is already closed
+            if (IsClosed)
+            {
+                throw new ArgumentException("Game is already closed!");
+            }
 
             GameDb.SaveResults(results);
 
