@@ -17,20 +17,15 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"></ColumnDefinition>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label VerticalAlignment="Center" Margin="15 0 0 0" FontSize="30">Game Creation</Label>
-        <Label x:Name="lblUsername" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">NevNevNev</Label>
-        <Label x:Name="lblPoints" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">50</Label>
-        <Button x:Name="btnBackToMenu" Click="btnBackToMenu_Click" Grid.Column="3" Width="60" Height="60" FontSize="15">Menu</Button>
-        <Border BorderThickness="0 0 0 1" BorderBrush="Black" Grid.ColumnSpan="4"></Border>
+        <local:Header
+            Title="Game Creation"
+            Grid.ColumnSpan="2"/>
 
-
-        <StackPanel Margin="0 15 0 0" Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Margin="0 15 0 0" Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label FontSize="25" Margin="0 0 15 0">Game Name:</Label>
             <TextBox x:Name="txtGameName" VerticalContentAlignment="Center" FontSize="25" Width="275" Background="LightGray"></TextBox>
         </StackPanel>
@@ -43,9 +38,9 @@
             <TextBox x:Name="txtSubject" Margin="0 0 15 0" VerticalContentAlignment="Center"/>
         </DockPanel>
 
-        <Label FontSize="25" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">Events</Label>
+        <Label FontSize="25" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">Events</Label>
 
-        <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="15 0 15 0">
+        <DockPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="15 0 15 0">
             <Button x:Name="btnEventAdd" Width="30" Height="30" DockPanel.Dock="Right" Click="btnEventAdd_Click">+</Button>
             <TextBox x:Name="txtEvent" Margin="0 0 15 0" VerticalContentAlignment="Center"/>
         </DockPanel>
@@ -58,7 +53,7 @@
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
-        <ListBox x:Name="lbEvents" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Background="LightGray" Margin="20 10 20 10">
+        <ListBox x:Name="lbEvents" Grid.Row="4" Grid.Column="1" Background="LightGray" Margin="20 10 20 10">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <EventSetter Event="MouseDoubleClick" Handler="lbEvents_MouseDoubleClick"/>
@@ -66,6 +61,6 @@
             </ListBox.ItemContainerStyle>
         </ListBox>
 
-        <Button x:Name="btnCreateGame" Click="btnCreateGame_Click" Width="200" Height="55" FontSize="20" Grid.Row="5" Grid.ColumnSpan="4">Create Game</Button>
+        <Button x:Name="btnCreateGame" Click="btnCreateGame_Click" Width="200" Height="55" FontSize="20" Grid.Row="5" Grid.ColumnSpan="2">Create Game</Button>
     </Grid>
 </Window>

@@ -60,13 +60,6 @@ namespace Dusza_Fogadas
             
         }
 
-        private void btnBackToMenu_Click(object sender, RoutedEventArgs e)
-        {
-            Menu menu = new Menu();
-            this.Close();
-            menu.Show();
-        }
-
         private void CheckIfCanBetCB(object sender, SelectionChangedEventArgs e)
         {
             if (canBet()) { btnBet.IsEnabled = true;}

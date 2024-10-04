@@ -35,13 +35,7 @@ namespace Dusza_Fogadas
             Game game = cbGames.SelectedItem as Game;
 
             game.CloseGame(results.ToList());
-            Menu menu = new Menu();
-            this.Close();
-            menu.Show();
-        }
 
-        private void btnBackToMenu_Click(object sender, RoutedEventArgs e)
-        {
             Menu menu = new Menu();
             this.Close();
             menu.Show();

@@ -33,13 +33,6 @@ namespace Dusza_Fogadas
             lbEvents.ItemsSource = events;
         }
 
-        private void btnBackToMenu_Click(object sender, RoutedEventArgs e)
-        {
-            Menu menu = new Menu();
-            this.Close();
-            menu.Show();
-        }
-
         private void btnCreateGame_Click(object sender, RoutedEventArgs e)
         {
             if (txtGameName.Text == "")
