@@ -22,6 +22,7 @@ namespace Dusza_Fogadas
     {
         public BetWindow()
         {
+            
             InitializeComponent();
             cbGame.ItemsSource = Game.Games;
             

@@ -5,85 +5,221 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dusza_Fogadas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="630" Width="410">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1.1*"></RowDefinition>
+        Title="MainWindow" Height="670" Width="470">
+
+    <Window.Resources>
+        <ControlTemplate x:Key="passwordbox" TargetType="{x:Type PasswordBox}">
+            <Border Background="{TemplateBinding Background}" 
+                x:Name="Bd" CornerRadius="10" BorderBrush="#6b6b6b" BorderThickness="1">
+
+                <ScrollViewer Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" />
+            </Border>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="Width" Value="Auto">
+                    <Setter Property="MinWidth" Value="100"/>
+                </Trigger>
+                <Trigger Property="Height" Value="Auto">
+                    <Setter Property="MinHeight" Value="20"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
+            <Border Background="{TemplateBinding Background}" 
+            x:Name="Bd" CornerRadius="10" BorderBrush="#6b6b6b" BorderThickness="1">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="Width" Value="Auto">
+                    <Setter Property="MinWidth" Value="100"/>
+                </Trigger>
+                <Trigger Property="Height" Value="Auto">
+                    <Setter Property="MinHeight" Value="20"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+
+    </Window.Resources>
+
+    <Border BorderBrush="#2b2b2b" Background="#f5f5f5" Padding="0 0 0 10" BorderThickness="1.5" Height="550" Width="370" CornerRadius="7">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.1*"></RowDefinition>
+
+                <RowDefinition Height="0.7*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.5*"></RowDefinition>
+
+                <RowDefinition Height="0.7*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.5*"></RowDefinition>
+
+                <RowDefinition Height="0.7*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.5*"></RowDefinition>
+
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="1.1*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label x:Name="lblTitle" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Login"></Label>
+
+
+            <!--Username-->
+            <Label FontSize="25" FontWeight="Light" VerticalAlignment="Center" Margin="17.5 0 0 0" HorizontalAlignment="Left" Grid.Row="1">Username</Label>
+            <TextBox x:Name="txtUsername" FontWeight="Light" Padding="5 0 0 0" GotFocus="RemoveErrorOutline" Background="#e6e6e6" Template="{StaticResource TextBoxBaseControlTemplate}" Height="50" FontSize="20" VerticalContentAlignment="Center" Margin="20 0 20 0" Grid.Row="2">
+            </TextBox>
+
+
+            <Label x:Name="lblUsernameError" FontWeight="Light" Margin="20 0 0 0" FontSize="15" VerticalAlignment="Top" Foreground="Red" Grid.Row="3"></Label>
+
             
-            <RowDefinition Height="0.7*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="0.5*"></RowDefinition>
+            <!--Password-->
+            <Label FontSize="25" FontWeight="Light" VerticalAlignment="Center" Margin="17.5 0 0 0" HorizontalAlignment="Left"  Grid.Row="4">Password</Label>
+            <PasswordBox x:Name="txtPassword" FontWeight="Light" Padding="5 0 0 0" Grid.Row="5" Background="#e6e6e6" IsEnabled="True" Template="{StaticResource passwordbox}" Height="50" Margin="20 0 20 0" GotFocus="RemoveErrorOutline" PasswordChar="*" FontSize="20" VerticalContentAlignment="Center">
+            </PasswordBox>
+
+
+            <Label x:Name="lblPasswordError" FontWeight="Light" Margin="20 0 0 0" FontSize="15" VerticalAlignment="Top" Foreground="Red" Grid.Row="6"></Label>
+
+
+            <!--Confrim Password-->
+            <Label x:Name="lblConfirmPassword" FontWeight="Light" Visibility="Collapsed" FontSize="25" VerticalAlignment="Center" Margin="17.5 0 0 0" HorizontalAlignment="Left" Grid.Row="7">Confirm Password</Label>
+            <PasswordBox x:Name="txtConfirmPassword" Padding="5 0 0 0" Background="#e6e6e6" Grid.Row="8" Template="{StaticResource passwordbox}" Height="50" GotFocus="RemoveErrorOutline" Visibility="Collapsed" PasswordChar="*" FontSize="20" Margin="20 0 20 0" VerticalContentAlignment="Center">
+            </PasswordBox>
+
+
+
+            <Label x:Name="lblConfirmPasswordError" FontWeight="Light" Margin="20 0 0 0" FontSize="15" VerticalAlignment="Top" Foreground="Red" Grid.Row="9"></Label>
+
             
-            <RowDefinition Height="0.7*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="0.5*"></RowDefinition>
+            <!--Login button-->
+            <Button x:Name="btnLogin" Background="#1c9e18" Foreground="White" BorderThickness="0" Click="btnLogin_Click" FontSize="25" Grid.Row="10" Height="50" Margin="20 0 20 0" Content="Login">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#218a1d" TargetName="Border" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+
+            <!--Register button-->
+            <Button x:Name="btnRegister" Background="#1c9e18" Foreground="White" BorderThickness="0" Click="btnRegister_Click" Visibility="Collapsed" FontSize="25" Grid.Row="10" Margin="20 0 20 0" Height="50" Content="Register">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#218a1d" TargetName="Border" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
             
-            <RowDefinition Height="0.7*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="0.5*"></RowDefinition>
-            
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="1.1*"></RowDefinition>
-        </Grid.RowDefinitions>
+            <!--Sign UP Button-->
+            <Label x:Name="lblDontHave" Grid.Row="11" FontSize="18" HorizontalAlignment="Center">Don't have an account yet?</Label>
+            <Button x:Name="btnDontHave" Foreground="White" Background="#52a84f" BorderThickness="0" Click="btnDontHave_Click" Grid.Row="11" FontSize="15" Height="25" Margin="95 27 95 0" Content="Sign up!">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="6"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#438a41" TargetName="Border" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
 
-        <Label x:Name="lblTitle" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Login"></Label>
 
-        <Label FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left" Grid.Row="1">Username</Label>
-        <TextBox x:Name="txtUsername" GotFocus="RemoveErrorOutline" Height="50" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="2" Background="LightGray">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
+            <!--Sign IN Button-->
+            <Label x:Name="lblAlreadyHave" Visibility="Collapsed" Grid.Row="11" FontSize="18" HorizontalAlignment="Center">Already have an account?</Label>
+            <Button x:Name="btnAlreadyHave" Click="btnAlreadyHave_Click" Foreground="White" Background="#52a84f" BorderThickness="0" Visibility="Collapsed" Grid.Row="11" FontSize="15" Margin="95 27 95 0" Height="25" Content="Sign in!">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="6"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="Border" Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#438a41" TargetName="Border" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+    </Border>
 
-        <Label x:Name="lblUsernameError" Margin="10 0 0 0" FontSize="15" VerticalAlignment="Top" Foreground="Red" Grid.Row="3"></Label>
-
-        <Label FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left"  Grid.Row="4">Password</Label>
-        
-        <PasswordBox x:Name="txtPassword" GotFocus="RemoveErrorOutline" PasswordChar="*" Height="50" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="5" Background="LightGray">
-        </PasswordBox>
-
-        <Label x:Name="lblPasswordError" Margin="10 0 0 0" FontSize="15" VerticalAlignment="Top" Foreground="Red" Grid.Row="6"></Label>
-
-        <Label x:Name="lblConfirmPassword" Visibility="Collapsed" FontSize="25" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left" Grid.Row="7">Confirm Password</Label>
-        <PasswordBox x:Name="txtConfirmPassword" GotFocus="RemoveErrorOutline" Visibility="Collapsed" PasswordChar="*" FontSize="20" VerticalContentAlignment="Center"  Height="50" HorizontalAlignment="Left" Margin="10 0 0 0" Width="375" Grid.Row="8" Background="LightGray">
-        </PasswordBox>
-
-        <Label x:Name="lblConfirmPasswordError" Margin="10 0 0 0" FontSize="15" VerticalAlignment="Top" Foreground="Red" Grid.Row="9"></Label>
-
-        <Button x:Name="btnLogin" Click="btnLogin_Click" FontSize="25" Grid.Row="10" Width="375" Height="50" Content="Login">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <Button x:Name="btnRegister" Click="btnRegister_Click" Visibility="Collapsed" FontSize="25" Grid.Row="10" Width="375" Height="50" Content="Register">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <Label x:Name="lblDontHave" Grid.Row="11" FontSize="18" HorizontalAlignment="Center">Don't have an account yet?</Label>
-        <Button x:Name="btnDontHave" Click="btnDontHave_Click" Grid.Row="11" FontSize="15" Margin="0 27 0 0" Height="25" Width="200" Content="Sign up!" BorderThickness="1 1 1 1" Background="White">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="6"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <Label x:Name="lblAlreadyHave" Visibility="Collapsed" Grid.Row="11" FontSize="18" HorizontalAlignment="Center">Already have an account?</Label>
-        <Button x:Name="btnAlreadyHave" Click="btnAlreadyHave_Click" Visibility="Collapsed" Grid.Row="11" FontSize="15" Margin="0 27 0 0" Height="25" Width="200" Content="Sign in!" BorderThickness="0 0 0 2" Background="White">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="6"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-    </Grid>
 </Window>
+    
+    
+    
+
