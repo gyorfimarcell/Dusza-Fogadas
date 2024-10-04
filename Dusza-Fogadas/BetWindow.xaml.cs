@@ -23,7 +23,7 @@ namespace Dusza_Fogadas
         public BetWindow()
         {
             InitializeComponent();
-            cbGame.ItemsSource = Game.Games;
+            cbGame.ItemsSource = Game.Games.Where(x => !x.IsClosed);
             
         }
         private void cbGame_SelectionChanged(object sender, SelectionChangedEventArgs e)
