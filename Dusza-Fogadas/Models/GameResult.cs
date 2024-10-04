@@ -12,11 +12,22 @@ namespace Dusza_Fogadas.Models
         public int EventId { get; set; }
         public string Outcome { get; set; }
 
+        public string SubjectName { get; set; }
+        public string EventName { get; set; }
+
         public GameResult(int subjectId, int eventId, string outcome)
         {
             SubjectId = subjectId;
             EventId = eventId;
             Outcome = outcome;
+        }
+
+        public GameResult(GameEvent gameEvent, GameSubject subject)
+        {
+            SubjectId = subject.Id;
+            SubjectName = subject.Name;
+            EventId = gameEvent.Id;
+            EventName = gameEvent.Name;
         }
     }
 }
