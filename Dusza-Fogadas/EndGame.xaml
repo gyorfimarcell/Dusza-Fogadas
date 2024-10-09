@@ -17,28 +17,77 @@
         <local:Header Title="End game"/>
 
         <StackPanel Orientation="Horizontal"
-            Grid.Row="1">
-            <Label  Margin="15 0 0 0" FontSize="25" VerticalAlignment="Center">Game Name</Label>
-            <ComboBox x:Name="cbGames" FontSize="25" VerticalContentAlignment="Center" Height="50" Margin="10 0 10 0" MinWidth="200" SelectionChanged="cbGames_SelectionChanged"></ComboBox>
+    Grid.Row="1">
+            <Label FontWeight="Light" Margin="15 0 0 0" FontSize="25" VerticalAlignment="Center">Game Name</Label>
+            <ComboBox x:Name="cbGames" FontSize="25" BorderBrush="#6b6b6b" BorderThickness="1" Background="#e6e6e6" FontWeight="Light" VerticalContentAlignment="Center" Height="50" Margin="10 0 10 0" MinWidth="200" SelectionChanged="cbGames_SelectionChanged"></ComboBox>
         </StackPanel>
-        
+
         <DataGrid x:Name="dgSubjectsAndEvents"
-                  AutoGenerateColumns="False"
-                  CanUserAddRows="False"
-                  Grid.Row="2"
-                  Margin="15 0 15 0" CellEditEnding="dgSubjectsAndEvents_CellEditEnding">
+          AutoGenerateColumns="False"
+          CanUserAddRows="False"
+          Grid.Row="2"
+          Margin="15 0 15 0" CellEditEnding="dgSubjectsAndEvents_CellEditEnding"
+          Background="#ededed"
+          FontWeight="Light"
+          BorderThickness="1"
+          BorderBrush="#6b6b6b">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Event"
-                                    Binding="{Binding EventName}"
-                                    IsReadOnly="True"/>
+                            Binding="{Binding EventName}"
+                            IsReadOnly="True"/>
                 <DataGridTextColumn Header="Subject"
-                                    Binding="{Binding SubjectName}"
-                                    IsReadOnly="True"/>
+                            Binding="{Binding SubjectName}"
+                            IsReadOnly="True"/>
                 <DataGridTextColumn Header="Outcome"
-                    Binding="{Binding Outcome, UpdateSourceTrigger=PropertyChanged}"/>
+            Binding="{Binding Outcome, UpdateSourceTrigger=PropertyChanged}"/>
             </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}" >
+                    <Setter Property="Background" Value="#f2f2f2"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="0 0 0.5 1"/>
+                    <Setter Property="Margin" Value="0 0 0 0" />
+                    <Setter Property="Padding" Value="5 0 5 0"></Setter>
+                    <Setter Property="Height" Value="25" />
+                    <Setter Property="Width" Value="auto"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.Resources>
         </DataGrid>
 
-        <Button Click="btnEndGame_Click" x:Name="btnEndGame" Padding="35 0 35 0" Height="55" Grid.Row="3" HorizontalAlignment="Center" FontSize="20">End Game</Button>
+        <Button Click="btnEndGame_Click"
+        x:Name="btnEndGame" 
+        Height="55"
+        Grid.Row="3" 
+        HorizontalAlignment="Stretch" 
+        Margin="300 0 300 0"
+        FontSize="20" 
+        Background="#e6e6e6" 
+        FontWeight="Light" 
+        HorizontalContentAlignment="Center">End Game
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" BorderThickness="1" BorderBrush="#6b6b6b" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#d1d1d1" TargetName="Border" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
     </Grid>
 </Window>

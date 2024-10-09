@@ -6,6 +6,48 @@
         xmlns:local="clr-namespace:Dusza_Fogadas"
         mc:Ignorable="d"
         Title="BetWindow" Height="600" Width="775">
+
+    <Window.Resources>
+        <ControlTemplate x:Key="txtTemplate" TargetType="{x:Type TextBoxBase}">
+            <Border BorderBrush="#6b6b6b" 
+                BorderThickness="1" 
+                Background="#e6e6e6"
+                x:Name="Bd">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="Width" Value="Auto">
+                    <Setter Property="MinWidth" Value="100"/>
+                </Trigger>
+                <Trigger Property="Height" Value="Auto">
+                    <Setter Property="MinHeight" Value="20"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="Opacity" Value="0.5"></Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+
+        <ControlTemplate x:Key="cbTemplate" TargetType="{x:Type ComboBox}">
+            <Border CornerRadius="5">
+
+            </Border>
+
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="false">
+                    <Setter Property="Opacity" Value="0.5"></Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -31,22 +73,49 @@
             Title="Make a Bet"
             Grid.ColumnSpan="4"/>
 
-        <Label FontSize="25" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1">Game Name</Label>
-        <ComboBox x:Name="cbGame" SelectionChanged="cbGame_SelectionChanged" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="2"></ComboBox>
+        <Label FontSize="25" VerticalAlignment="Center" FontWeight="Light" Grid.Row="2" Grid.Column="1">Game Name</Label>
+        <ComboBox x:Name="cbGame" SelectionChanged="cbGame_SelectionChanged" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="2" BorderBrush="#6b6b6b" BorderThickness="1" Background="#e6e6e6" FontWeight="Light"></ComboBox>
 
-        <Label FontSize="25" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1">Subject</Label>
-        <ComboBox x:Name="cbSubject" IsEnabled="False" SelectionChanged="CheckIfCanBetCB" FontSize="25" Grid.Column="2"  Height="50" Margin="10 0 10 0" Grid.Row="3"></ComboBox>
+        <Label FontSize="25" VerticalAlignment="Center" FontWeight="Light" Grid.Row="3" Grid.Column="1">Subject</Label>
+        <ComboBox x:Name="cbSubject" IsEnabled="False" SelectionChanged="CheckIfCanBetCB" FontSize="25" Grid.Column="2"  Height="50" Margin="10 0 10 0" Grid.Row="3" BorderBrush="#6b6b6b" BorderThickness="1" Background="#e6e6e6" FontWeight="Light"></ComboBox>
 
-        <Label FontSize="25" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1">Event</Label>
-        <ComboBox x:Name="cbEvent" IsEnabled="False" SelectionChanged="CheckIfCanBetCB" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="4"></ComboBox>
+        <Label FontSize="25" VerticalAlignment="Center" FontWeight="Light" Grid.Row="4" Grid.Column="1">Event</Label>
+        <ComboBox x:Name="cbEvent" IsEnabled="False" SelectionChanged="CheckIfCanBetCB" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="4" BorderBrush="#6b6b6b" BorderThickness="1" Background="#e6e6e6" FontWeight="Light"></ComboBox>
 
-        <Label FontSize="25" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1">Outcome</Label>
-        <TextBox x:Name="txtOutcome" IsEnabled="False" TextChanged="CheckIfCanBetTXT" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="5"></TextBox>
+        <Label FontSize="25" VerticalAlignment="Center" FontWeight="Light" Grid.Row="5" Grid.Column="1">Outcome</Label>
+        <TextBox x:Name="txtOutcome" IsEnabled="False"  TextChanged="CheckIfCanBetTXT" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="5"  Template="{StaticResource txtTemplate}" FontWeight="Light"></TextBox>
 
-        <Label FontSize="25" VerticalAlignment="Center" Grid.Row="6" Grid.Column="1">Points</Label>
-        <TextBox x:Name="txtBetAmount" IsEnabled="False" TextChanged="CheckIfCanBetTXT" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="6"></TextBox>
+        <Label FontSize="25" VerticalAlignment="Center" FontWeight="Light" Grid.Row="6" Grid.Column="1">Points</Label>
+        <TextBox x:Name="txtBetAmount" IsEnabled="False" TextChanged="CheckIfCanBetTXT" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="6"  Template="{StaticResource txtTemplate}" FontWeight="Light"></TextBox>
 
-        <Button x:Name="btnBet" Click="btnBet_Click" IsEnabled="False" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Width="200" Height="50" FontSize="25">Bet</Button>
+        <Button x:Name="btnBet" Click="btnBet_Click" IsEnabled="False" FontWeight="Light" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Width="200" Height="50" FontSize="25">Bet
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Border" BorderThickness="1" BorderBrush="#6b6b6b" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#d1d1d1" TargetName="Border" />
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="Opacity" Value="0.5"></Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
 
     </Grid>
 </Window>
