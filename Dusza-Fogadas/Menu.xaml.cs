@@ -76,5 +76,18 @@ namespace Dusza_Fogadas
             this.Close();
         }
 
+        private void btnRankings_Click(object sender, RoutedEventArgs e)
+        {
+            Rankings rankings = new();
+            this.Close();
+            rankings.Show();
+        }
+
+        private void btnGameStatistics_Click(object sender, RoutedEventArgs e)
+        {
+            GameStatisticsWindow statistics = new();
+            this.Close();
+            statistics.Show();
+        }
     }
 }

@@ -29,6 +29,8 @@ namespace Dusza_Fogadas.Models
 
         public bool IsClosed => GameDb.GetAllResults().Any(x => x.SubjectId == Subjects[0].Id);
 
+        public List<Bet> Bets => BetDb.GetAllBets().ToList();
+
         public void CloseGame(List<GameResult> results)
         {
             if (IsClosed)
@@ -42,14 +44,9 @@ namespace Dusza_Fogadas.Models
 
             foreach (GameResult result in results)
             {
-                List<Bet> filteredBets = bets.Where(x => x.SubjectId == result.SubjectId && x.EventId == result.EventId).ToList();
-                if (filteredBets.Count == 0) return;
-
-                double multiplier = 1 + (5 / Math.Pow(2, filteredBets.Count - 1));
-
-                foreach (Bet winner in filteredBets.Where(x => x.Outcome == result.Outcome))
+                foreach (Bet winner in result.Bets.Where(x => x.Outcome == result.Outcome))
                 {
-                    winner.User.SetBalance(winner.User.Balance + (winner.Amount * multiplier));
+                    winner.User.SetBalance(winner.User.Balance + (winner.Amount * result.GetMultiplier()));
                 }
             }
         }

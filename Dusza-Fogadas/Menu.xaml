@@ -120,7 +120,10 @@
                         </Style>
                     </Button.Style>
                 </Button>
-
+            
+            <Button x:Name="btnRankings" BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch" FontSize="25" Height="50" Padding="20 0 0 0" DockPanel.Dock="Top" Click="btnRankings_Click">Rankings</Button>
+            <Button x:Name="btnGameStatistics" BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch" FontSize="25" Height="50" Padding="20 0 0 0" DockPanel.Dock="Top" Click="btnGameStatistics_Click">Game Statistics</Button>
+          
             <Button DockPanel.Dock="Top"
                     VerticalAlignment="Center" 
                     Height="50" 
