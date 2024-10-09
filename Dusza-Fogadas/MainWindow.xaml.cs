@@ -21,6 +21,7 @@ namespace Dusza_Fogadas
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)

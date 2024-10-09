@@ -54,5 +54,8 @@
     <Page Update="Rankings.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>
