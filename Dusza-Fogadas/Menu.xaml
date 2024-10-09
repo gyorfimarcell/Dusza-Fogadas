@@ -21,7 +21,7 @@
 
             <Button x:Name="btnEndGame" Click="btnEndGame_Click" BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch" FontSize="25" Height="50" Padding="20 0 0 0" DockPanel.Dock="Top">End a Game</Button>
 
-            <Button BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch" FontSize="25" Height="50" Padding="20 0 0 0" DockPanel.Dock="Top">Lekérdezések (még nem)</Button>
+            <Button x:Name="btnRankings" BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch" FontSize="25" Height="50" Padding="20 0 0 0" DockPanel.Dock="Top" Click="btnRankings_Click">Rankings</Button>
 
             <Button x:Name="btnExit" Click="btnExit_Click" BorderThickness="0.5 0.5 2 3" Background="white" HorizontalContentAlignment="Left" HorizontalAlignment="Stretch" FontSize="25"  Height="50" Padding="20 0 0 0" DockPanel.Dock="Bottom">Exit</Button>
 

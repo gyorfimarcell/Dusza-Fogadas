@@ -22,6 +22,9 @@
     <Compile Update="NewGame.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Rankings.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="BetWindow.xaml">
@@ -40,6 +43,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="NewGame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Rankings.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
