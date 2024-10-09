@@ -24,7 +24,7 @@ namespace Dusza_Fogadas
         {
             
             InitializeComponent();
-            cbGame.ItemsSource = Game.Games;
+            cbGame.ItemsSource = Game.Games.Where(x => !x.IsClosed);
             
         }
         private void cbGame_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -49,16 +49,15 @@ namespace Dusza_Fogadas
             {
                 Bet.PlaceBet((cbGame.SelectedItem as Game).Id, (cbSubject.SelectedItem as GameSubject).Id, (cbEvent.SelectedItem as GameEvent).Id, outcome, amount);
                 MessageBox.Show("Successfully placed bet!");
-
-                txtBetAmount.Text = "";
-                txtOutcome.Text = "";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show(ex.Message);
             }
-            
-            
+            txtBetAmount.Text = "";
+            txtOutcome.Text = "";
+            header.UpdatePoints();
+
         }
 
         private void CheckIfCanBetCB(object sender, SelectionChangedEventArgs e)

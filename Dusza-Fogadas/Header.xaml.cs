@@ -32,6 +32,10 @@ namespace Dusza_Fogadas
         {
             lblTitle.Content = Title;
             lblUsername.Content = User.CurrentUser?.Username;
+            UpdatePoints();
+        }
+
+        public void UpdatePoints() {
             if (User.CurrentUser?.Role == UserRole.Player)
             {
                 lblPoints.Content = $"${User.CurrentUser.Balance}";
