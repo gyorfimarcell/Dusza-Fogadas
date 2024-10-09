@@ -26,7 +26,8 @@
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <local:Header 
+        <local:Header
+            x:Name="header"
             Title="Make a Bet"
             Grid.ColumnSpan="4"/>
 
