@@ -15,6 +15,8 @@ namespace Dusza_Fogadas.Models
         public string SubjectName { get; set; }
         public string EventName { get; set; }
 
+        public List<Bet> Bets => BetDb.GetAllBets().Where(x => x.SubjectId == SubjectId && x.EventId == EventId).ToList();
+
         public GameResult(int subjectId, int eventId, string outcome)
         {
             SubjectId = subjectId;
@@ -28,6 +30,14 @@ namespace Dusza_Fogadas.Models
             SubjectName = subject.Name;
             EventId = gameEvent.Id;
             EventName = gameEvent.Name;
+        }
+
+        public double GetMultiplier()
+        {
+            if (Bets.Count == 0) return 0;
+
+            double multiplier = 1 + (5 / Math.Pow(2, Bets.Count - 1));
+            return multiplier;
         }
     }
 }

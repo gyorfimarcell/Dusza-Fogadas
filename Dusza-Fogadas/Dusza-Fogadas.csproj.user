@@ -13,6 +13,9 @@
     <Compile Update="EndGame.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GameStatisticsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Header.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EndGame.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GameStatisticsWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Header.xaml">
