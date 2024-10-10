@@ -40,7 +40,9 @@ namespace Dusza_Fogadas
 
         private void btnBetStatistics_Click(object sender, RoutedEventArgs e)
         {
-            
+            BetStatisticsWindow newBetStatistics = new BetStatisticsWindow();
+            this.Close();
+            newBetStatistics.Show();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
