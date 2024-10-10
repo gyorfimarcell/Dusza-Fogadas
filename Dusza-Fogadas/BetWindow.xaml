@@ -52,7 +52,7 @@
     </Window.Resources>
 
 
-    <Grid>
+    <Grid Background="#f5f5f5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="2*"/>
