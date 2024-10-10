@@ -28,24 +28,11 @@
                     <Setter Property="MinHeight" Value="20"/>
                 </Trigger>
                 <Trigger Property="IsEnabled" Value="false">
-                    <Setter Property="Opacity" Value="0.5"></Setter>
+                    <Setter Property="Opacity" Value="0.6"></Setter>
                 </Trigger>
                 <Trigger Property="IsFocused" Value="true">
                     <Setter Property="BorderBrush" TargetName="Bd" Value="Black"/>
                     <Setter Property="BorderThickness" Value="1.5"></Setter>
-                </Trigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
-
-
-        <ControlTemplate x:Key="cbTemplate" TargetType="{x:Type ComboBox}">
-            <Border CornerRadius="5">
-
-            </Border>
-
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsEnabled" Value="false">
-                    <Setter Property="Opacity" Value="0.5"></Setter>
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>

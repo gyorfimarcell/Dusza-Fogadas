@@ -8,6 +8,7 @@
              d:DesignHeight="100" d:DesignWidth="800"
              Background="White"
              Loaded="UserControl_Loaded">
+    
     <Grid Background="#f5f5f5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
