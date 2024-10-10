@@ -89,5 +89,12 @@ namespace Dusza_Fogadas
             this.Close();
             statistics.Show();
         }
+
+        private void btnBetStatistics_Click(object sender, RoutedEventArgs e)
+        {
+            BetStatisticsWindow statistics = new();
+            this.Close();
+            statistics.Show();
+        }
     }
 }
