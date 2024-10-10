@@ -117,7 +117,8 @@
                      Margin="7 0 15 0" 
                      Template="{StaticResource txtTemplate}" 
                      VerticalContentAlignment="Center"
-                     FontSize="17"/>
+                     FontSize="17"
+                     Padding="5 0 0 0"/>
         </DockPanel>
 
         <Label FontSize="25" 
@@ -141,7 +142,8 @@
                      Margin="7 0 15 0" 
                      Template="{StaticResource txtTemplate}" 
                      VerticalContentAlignment="Center"
-                     FontSize="17"/>
+                     FontSize="17"
+                     Padding="5 0 0 0"/>
         </DockPanel>
 
 

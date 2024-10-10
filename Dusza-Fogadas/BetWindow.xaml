@@ -94,10 +94,10 @@ BorderThickness="1" Background="#e6e6e6" FontWeight="Light" VerticalContentAlign
         <ComboBox x:Name="cbEvent" IsEnabled="False" SelectionChanged="CheckIfCanBetCB" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="4" BorderThickness="1" FontWeight="Light" VerticalContentAlignment="Center"></ComboBox>
 
         <Label FontSize="25" VerticalAlignment="Center" FontWeight="Light" Grid.Row="5" Grid.Column="1">Outcome</Label>
-        <TextBox x:Name="txtOutcome" IsEnabled="False" VerticalContentAlignment="Center"  TextChanged="CheckIfCanBetTXT" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="5"  Template="{StaticResource txtTemplate}" FontWeight="Light"></TextBox>
+        <TextBox x:Name="txtOutcome" IsEnabled="False" Padding="5 0 0 0" VerticalContentAlignment="Center"  TextChanged="CheckIfCanBetTXT" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="5"  Template="{StaticResource txtTemplate}" FontWeight="Light"></TextBox>
 
         <Label FontSize="25" VerticalAlignment="Center" FontWeight="Light" Grid.Row="6" Grid.Column="1">Points</Label>
-        <TextBox x:Name="txtBetAmount" IsEnabled="False" VerticalContentAlignment="Center" TextChanged="CheckIfCanBetTXT" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="6"  Template="{StaticResource txtTemplate}" FontWeight="Light"></TextBox>
+        <TextBox x:Name="txtBetAmount" IsEnabled="False" Padding="5 0 0 0" VerticalContentAlignment="Center" TextChanged="CheckIfCanBetTXT" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="6"  Template="{StaticResource txtTemplate}" FontWeight="Light"></TextBox>
 
         <Button x:Name="btnBet" 
                 Click="btnBet_Click" 
