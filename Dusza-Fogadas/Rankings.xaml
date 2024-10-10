@@ -5,34 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dusza_Fogadas"
         mc:Ignorable="d"
-        Title="Rankings" Height="450" Width="600">
-    <Grid Background="#f5f5f5">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="5*"/>
-        </Grid.RowDefinitions>
+        Title="Rankings" Height="600" Width="775">
 
-        <local:Header
+    <Border Background="#f5f5f5" Height="485" Width="675" BorderBrush="#2b2b2b" BorderThickness="1">
+        <Grid Background="#f5f5f5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+
+            <local:Header
             Title="Rankings"/>
-        <DataGrid x:Name="dgRankings"
+            <DataGrid x:Name="dgRankings"
                   CanUserAddRows="False"
                   IsReadOnly="True"
                   Grid.Row="1"
                   Background="#e6e6e6"
                   Margin="10 15 10 10"
-                  BorderBrush="#6b6b6b">
-            <DataGrid.Resources>
-                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}" >
-                    <Setter Property="Background" Value="#f2f2f2"/>
-                    <Setter Property="BorderBrush" Value="Black"/>
-                    <Setter Property="BorderThickness" Value="0 0 0.5 1"/>
-                    <Setter Property="Margin" Value="0 0 0 0" />
-                    <Setter Property="Padding" Value="5 0 5 0"></Setter>
-                    <Setter Property="Height" Value="20" />
-                    <Setter Property="Width" Value="auto"/>
-                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                </Style>
-            </DataGrid.Resources>
-        </DataGrid>
-    </Grid>
+                  BorderBrush="#6b6b6b"
+                  FontWeight="Light"
+                  FontSize="15">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}" >
+                        <Setter Property="Background" Value="#f2f2f2"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="0 0 1 1"/>
+                        <Setter Property="Margin" Value="0 0 0 0" />
+                        <Setter Property="Padding" Value="5 0 5 0"></Setter>
+                        <Setter Property="Height" Value="25" />
+                        <Setter Property="Width" Value="auto"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </DataGrid.Resources>
+            </DataGrid>
+        </Grid>
+    </Border>
 </Window>
