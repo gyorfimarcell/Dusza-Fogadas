@@ -39,16 +39,42 @@
                     <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
                     <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
                 </Trigger>
-                <Trigger Property="Width" Value="Auto">
-                    <Setter Property="MinWidth" Value="100"/>
-                </Trigger>
-                <Trigger Property="Height" Value="Auto">
-                    <Setter Property="MinHeight" Value="20"/>
+                <Trigger Property="IsFocused" Value="true">
+                    <Setter Property="BorderBrush" TargetName="Bd" Value="Black"/>
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
 
+        <ControlTemplate x:Key="loginButton" TargetType="{x:Type Button}">
+            <Border x:Name="Border" 
+                    Background="#1c9e18"
+                    BorderThickness="0" 
+                    CornerRadius="5">
+                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#218a1d" TargetName="Border" />
+                </Trigger>
+                <Trigger Property="IsFocused" Value="true">
+                    <Setter Property="BorderBrush" TargetName="Border" Value="Black"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
 
+        <ControlTemplate x:Key="signupButton" TargetType="{x:Type Button}">
+            <Border x:Name="Border" 
+            Background="#52a84f"
+            BorderThickness="0" 
+            CornerRadius="5">
+                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#438a41" TargetName="Border" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </Window.Resources>
 
     <Border BorderBrush="#2b2b2b" Background="#f5f5f5" Padding="0 0 0 10" BorderThickness="1.5" Height="550" Width="370" CornerRadius="7">
@@ -104,116 +130,58 @@
 
             
             <!--Login button-->
-            <Button x:Name="btnLogin" Background="#1c9e18" Foreground="White" BorderThickness="0" Click="btnLogin_Click" FontSize="25" Grid.Row="10" Height="50" Margin="20 0 20 0" Content="Login">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border x:Name="Border" Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#218a1d" TargetName="Border" />
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
+            <Button x:Name="btnLogin" 
+                    Foreground="White" 
+                    Click="btnLogin_Click" 
+                    FontSize="25" 
+                    Grid.Row="10" 
+                    Height="50" 
+                    Margin="20 0 20 0" 
+                    Content="Login"
+                    Template="{StaticResource loginButton}">
             </Button>
 
 
             <!--Register button-->
-            <Button x:Name="btnRegister" Background="#1c9e18" Foreground="White" BorderThickness="0" Click="btnRegister_Click" Visibility="Collapsed" FontSize="25" Grid.Row="10" Margin="20 0 20 0" Height="50" Content="Register">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Button.Resources>
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border x:Name="Border" Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#218a1d" TargetName="Border" />
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
+            <Button x:Name="btnRegister" 
+                    Foreground="White" 
+                    Click="btnRegister_Click" 
+                    Visibility="Collapsed" FontSize="25" 
+                    Grid.Row="10" 
+                    Margin="20 0 20 0" 
+                    Height="50" 
+                    Content="Register"
+                    Template="{StaticResource loginButton}">
             </Button>
 
             
             <!--Sign UP Button-->
             <Label x:Name="lblDontHave" Grid.Row="11" FontSize="18" HorizontalAlignment="Center">Don't have an account yet?</Label>
-            <Button x:Name="btnDontHave" Foreground="White" Background="#52a84f" BorderThickness="0" Click="btnDontHave_Click" Grid.Row="11" FontSize="15" Height="25" Margin="95 27 95 0" Content="Sign up!">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="6"/>
-                    </Style>
-                </Button.Resources>
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border x:Name="Border" Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#438a41" TargetName="Border" />
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
+            <Button x:Name="btnDontHave" 
+                    Foreground="White" 
+                    Click="btnDontHave_Click" 
+                    Grid.Row="11" 
+                    FontSize="15" 
+                    Height="25" 
+                    Margin="95 27 95 0" 
+                    Content="Sign up!"
+                    Template="{StaticResource signupButton}">
+             
             </Button>
 
 
             <!--Sign IN Button-->
             <Label x:Name="lblAlreadyHave" Visibility="Collapsed" Grid.Row="11" FontSize="18" HorizontalAlignment="Center">Already have an account?</Label>
-            <Button x:Name="btnAlreadyHave" Click="btnAlreadyHave_Click" Foreground="White" Background="#52a84f" BorderThickness="0" Visibility="Collapsed" Grid.Row="11" FontSize="15" Margin="95 27 95 0" Height="25" Content="Sign in!">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="6"/>
-                    </Style>
-                </Button.Resources>
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border x:Name="Border" Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#438a41" TargetName="Border" />
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
+            <Button x:Name="btnAlreadyHave" 
+                    Click="btnAlreadyHave_Click" 
+                    Foreground="White" 
+                    Visibility="Collapsed"
+                    Grid.Row="11" 
+                    FontSize="15" 
+                    Margin="95 27 95 0" 
+                    Height="25" 
+                    Content="Sign in!"
+                    Template="{StaticResource signupButton}">
             </Button>
         </Grid>
     </Border>
