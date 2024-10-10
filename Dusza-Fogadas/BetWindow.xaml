@@ -30,6 +30,10 @@
                 <Trigger Property="IsEnabled" Value="false">
                     <Setter Property="Opacity" Value="0.5"></Setter>
                 </Trigger>
+                <Trigger Property="IsFocused" Value="true">
+                    <Setter Property="BorderBrush" TargetName="Bd" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="1.5"></Setter>
+                </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
 
@@ -48,7 +52,7 @@
     </Window.Resources>
 
 
-    <Grid>
+    <Grid Background="#f5f5f5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="2*"/>
@@ -74,19 +78,20 @@
             Grid.ColumnSpan="4"/>
 
         <Label FontSize="25" VerticalAlignment="Center" FontWeight="Light" Grid.Row="2" Grid.Column="1">Game Name</Label>
-        <ComboBox x:Name="cbGame" SelectionChanged="cbGame_SelectionChanged" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="2" BorderBrush="#6b6b6b" BorderThickness="1" Background="#e6e6e6" FontWeight="Light"></ComboBox>
+        <ComboBox x:Name="cbGame" SelectionChanged="cbGame_SelectionChanged" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="2" 
+BorderThickness="1" Background="#e6e6e6" FontWeight="Light" VerticalContentAlignment="Center"></ComboBox>
 
         <Label FontSize="25" VerticalAlignment="Center" FontWeight="Light" Grid.Row="3" Grid.Column="1">Subject</Label>
-        <ComboBox x:Name="cbSubject" IsEnabled="False" SelectionChanged="CheckIfCanBetCB" FontSize="25" Grid.Column="2"  Height="50" Margin="10 0 10 0" Grid.Row="3" BorderBrush="#6b6b6b" BorderThickness="1" Background="#e6e6e6" FontWeight="Light"></ComboBox>
+        <ComboBox x:Name="cbSubject" IsEnabled="False" SelectionChanged="CheckIfCanBetCB" FontSize="25" Grid.Column="2"  Height="50" Margin="10 0 10 0" Grid.Row="3" BorderThickness="1"  FontWeight="Light" VerticalContentAlignment="Center"></ComboBox>
 
         <Label FontSize="25" VerticalAlignment="Center" FontWeight="Light" Grid.Row="4" Grid.Column="1">Event</Label>
-        <ComboBox x:Name="cbEvent" IsEnabled="False" SelectionChanged="CheckIfCanBetCB" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="4" BorderBrush="#6b6b6b" BorderThickness="1" Background="#e6e6e6" FontWeight="Light"></ComboBox>
+        <ComboBox x:Name="cbEvent" IsEnabled="False" SelectionChanged="CheckIfCanBetCB" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="4" BorderThickness="1" FontWeight="Light" VerticalContentAlignment="Center"></ComboBox>
 
         <Label FontSize="25" VerticalAlignment="Center" FontWeight="Light" Grid.Row="5" Grid.Column="1">Outcome</Label>
-        <TextBox x:Name="txtOutcome" IsEnabled="False"  TextChanged="CheckIfCanBetTXT" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="5"  Template="{StaticResource txtTemplate}" FontWeight="Light"></TextBox>
+        <TextBox x:Name="txtOutcome" IsEnabled="False" VerticalContentAlignment="Center"  TextChanged="CheckIfCanBetTXT" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="5"  Template="{StaticResource txtTemplate}" FontWeight="Light"></TextBox>
 
         <Label FontSize="25" VerticalAlignment="Center" FontWeight="Light" Grid.Row="6" Grid.Column="1">Points</Label>
-        <TextBox x:Name="txtBetAmount" IsEnabled="False" TextChanged="CheckIfCanBetTXT" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="6"  Template="{StaticResource txtTemplate}" FontWeight="Light"></TextBox>
+        <TextBox x:Name="txtBetAmount" IsEnabled="False" VerticalContentAlignment="Center" TextChanged="CheckIfCanBetTXT" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="6"  Template="{StaticResource txtTemplate}" FontWeight="Light"></TextBox>
 
         <Button x:Name="btnBet" Click="btnBet_Click" IsEnabled="False" FontWeight="Light" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Width="200" Height="50" FontSize="25">Bet
             <Button.Resources>

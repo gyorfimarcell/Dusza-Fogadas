@@ -62,5 +62,6 @@ namespace Dusza_Fogadas
         {
             CheckIfCanSubmit();
         }
+
     }
 }

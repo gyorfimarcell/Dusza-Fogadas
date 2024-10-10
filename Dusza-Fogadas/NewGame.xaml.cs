@@ -66,6 +66,7 @@ namespace Dusza_Fogadas
             {
                 subjects.Add(txtSubject.Text);
                 txtSubject.Clear();
+                IsValid();
             }
         }
 
@@ -75,17 +76,33 @@ namespace Dusza_Fogadas
             {
                 events.Add(txtEvent.Text);
                 txtEvent.Clear();
+                IsValid();
             }
         }
 
         private void lbSubjects_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             subjects.Remove(lbSubjects.SelectedItem.ToString());
+            IsValid();
         }
 
         private void lbEvents_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             events.Remove(lbEvents.SelectedItem.ToString());
+            IsValid();
+        }
+
+        private void isValidName(object sender, TextChangedEventArgs e)
+        {
+            IsValid();
+        }
+
+        private void IsValid()
+        {
+            if (txtGameName.Text.Length >= 3 && lbEvents.Items.Count > 0 && lbSubjects.Items.Count > 0)
+                btnCreateGame.IsEnabled = true;
+            else
+                btnCreateGame.IsEnabled = false;
         }
     }
 }

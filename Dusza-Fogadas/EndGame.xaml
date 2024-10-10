@@ -6,7 +6,29 @@
         xmlns:local="clr-namespace:Dusza_Fogadas"
         mc:Ignorable="d"
         Title="EndGame" Height="600" Width="775">
-    <Grid>
+
+
+    <Window.Resources>
+        <ControlTemplate x:Key="normalButton" TargetType="{x:Type Button}">
+            <Border x:Name="Border" 
+    Background="#e6e6e6"
+    BorderThickness="1" 
+    BorderBrush="#6b6b6b"
+    CornerRadius="5">
+                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#d1d1d1" TargetName="Border" />
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.6"></Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid Background="#f5f5f5">
         <Grid.RowDefinitions>
             <RowDefinition Height="1.1*"></RowDefinition>
             <RowDefinition Height="0.9*"></RowDefinition>
@@ -64,30 +86,9 @@
         FontSize="20" 
         Background="#e6e6e6" 
         FontWeight="Light" 
-        HorizontalContentAlignment="Center">End Game
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border x:Name="Border" BorderThickness="1" BorderBrush="#6b6b6b" Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#d1d1d1" TargetName="Border" />
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </Button.Style>
+        HorizontalContentAlignment="Center"
+        Template="{StaticResource normalButton}"
+        IsEnabled="False">End Game
         </Button>
     </Grid>
 </Window>
