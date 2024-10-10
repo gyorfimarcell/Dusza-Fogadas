@@ -52,7 +52,9 @@
           Background="#ededed"
           FontWeight="Light"
           BorderThickness="1"
-          BorderBrush="#6b6b6b">
+          BorderBrush="#6b6b6b"
+          FontSize="15"
+          VerticalContentAlignment="Center">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Event"
                             Binding="{Binding EventName}"
