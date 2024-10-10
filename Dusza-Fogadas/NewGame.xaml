@@ -10,7 +10,7 @@
     <Window.Resources>
         <ControlTemplate x:Key="txtTemplate" TargetType="{x:Type TextBoxBase}">
             <Border x:Name="Bd" CornerRadius="5" BorderBrush="#6b6b6b" BorderThickness="1" Background="#e6e6e6">
-
+                <ScrollViewer x:Name="PART_ContentHost"/>
             </Border>
 
             <ControlTemplate.Triggers>
@@ -23,6 +23,28 @@
                 </Trigger>
                 <Trigger Property="Height" Value="Auto">
                     <Setter Property="MinHeight" Value="20"/>
+                </Trigger>
+                <Trigger Property="IsFocused" Value="true">
+                    <Setter Property="BorderBrush" TargetName="Bd" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="1.5"></Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="normalButton" TargetType="{x:Type Button}">
+            <Border x:Name="Border" 
+            Background="#e6e6e6"
+            BorderThickness="1" 
+            BorderBrush="#6b6b6b"
+            CornerRadius="5">
+                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#d1d1d1" TargetName="Border" />
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.6"></Setter>
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
@@ -51,70 +73,46 @@
 
         <StackPanel Margin="0 15 0 0" Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label FontSize="25" FontWeight="Light" Margin="0 0 15 0">Game Name:</Label>
-            <TextBox x:Name="txtGameName" Template="{StaticResource txtTemplate}" VerticalContentAlignment="Center" FontSize="25" Width="275" Background="LightGray"></TextBox>
+            <TextBox x:Name="txtGameName" FontWeight="Light" TextChanged="isValidName" Template="{StaticResource txtTemplate}" VerticalContentAlignment="Center" FontSize="25" Width="275" Background="LightGray"></TextBox>
         </StackPanel>
 
 
         <Label FontSize="25" Grid.Row="2" FontWeight="Light" HorizontalAlignment="Center" VerticalAlignment="Center">Subjects</Label>
 
         <DockPanel Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="15 0 15 0">
-            <Button x:Name="btnSubjectAdd" Width="30" Margin="0 0 5 0" Height="30" DockPanel.Dock="Right" Click="btnSubjectAdd_Click">+
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border x:Name="Border" BorderThickness="1" BorderBrush="#6b6b6b" Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#d1d1d1" TargetName="Border" />
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
+            <Button x:Name="btnSubjectAdd" 
+                    Width="30" 
+                    Margin="0 0 5 0" 
+                    Height="30" 
+                    DockPanel.Dock="Right" 
+                    Click="btnSubjectAdd_Click"
+                    Template="{StaticResource normalButton}">+
             </Button>
-            <TextBox x:Name="txtSubject" Margin="5 0 15 0" Template="{StaticResource txtTemplate}" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="txtSubject" 
+                     FontWeight="Light" 
+                     Margin="7 0 15 0" 
+                     Template="{StaticResource txtTemplate}" 
+                     VerticalContentAlignment="Center"
+                     FontSize="17"/>
         </DockPanel>
 
         <Label FontSize="25" FontWeight="Light" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">Events</Label>
 
         <DockPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="15 0 15 0">
-            <Button x:Name="btnEventAdd" Width="30" Margin="0 0 5 0" Height="30" DockPanel.Dock="Right" Click="btnEventAdd_Click">+
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="5"/>
-                    </Style>
-                </Button.Resources>
-                <Button.Style>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border x:Name="Border" BorderThickness="1" BorderBrush="#6b6b6b" Background="{TemplateBinding Background}">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#d1d1d1" TargetName="Border" />
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
+            <Button x:Name="btnEventAdd" 
+                    Width="30" 
+                    Margin="0 0 5 0" 
+                    Height="30" 
+                    DockPanel.Dock="Right" 
+                    Click="btnEventAdd_Click"
+                    Template="{StaticResource normalButton}">+
             </Button>
-            <TextBox x:Name="txtEvent" Margin="5 0 15 0 " Template="{StaticResource txtTemplate}" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="txtEvent" 
+                     FontWeight="Light" 
+                     Margin="7 0 15 0" 
+                     Template="{StaticResource txtTemplate}" 
+                     VerticalContentAlignment="Center"
+                     FontSize="17"/>
         </DockPanel>
 
 
@@ -133,30 +131,16 @@
             </ListBox.ItemContainerStyle>
         </ListBox>
 
-        <Button x:Name="btnCreateGame" Background="#e6e6e6" FontWeight="Light" Click="btnCreateGame_Click" Width="200" Height="55" FontSize="20" Grid.Row="5" Grid.ColumnSpan="2">Create Game
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border x:Name="Border" BorderThickness="1" BorderBrush="#6b6b6b" Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                </Border>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#d1d1d1" TargetName="Border" />
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </Button.Style>
+        <Button x:Name="btnCreateGame"  
+                FontWeight="Light" 
+                Click="btnCreateGame_Click" 
+                Width="200" 
+                Height="55" 
+                FontSize="20" 
+                Grid.Row="5" 
+                Grid.ColumnSpan="2"
+                IsEnabled="False"
+                Template="{StaticResource normalButton}">Create Game
         </Button>
     </Grid>
 </Window>
