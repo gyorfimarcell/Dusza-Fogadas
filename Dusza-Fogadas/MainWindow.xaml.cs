@@ -23,7 +23,6 @@ namespace Dusza_Fogadas
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
 
-
         }
 
         protected override void OnSourceInitialized(EventArgs e)
