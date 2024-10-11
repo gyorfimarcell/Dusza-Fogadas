@@ -44,6 +44,7 @@ namespace Dusza_Fogadas
 
             if (Game.Games.Any(x => x.Name == txtGameName.Text))
             {
+                SuccesBox.Visibility = Visibility.Collapsed;
                 ErrorBox.Visibility = Visibility.Visible;
                 lblErrorBox.Content = "A game with that name already exists!";
                 txtGameName.Text = "";
@@ -59,9 +60,13 @@ namespace Dusza_Fogadas
 
             Game.NewGame(txtGameName.Text, subjects.ToList(), events.ToList());
 
-            Menu menu = new Menu();
-            this.Close();
-            menu.Show();
+            ErrorBox.Visibility = Visibility.Collapsed;
+            SuccesBox.Visibility= Visibility.Visible;
+            lblSuccessBox.Content = "Succesfully created a new game!";
+            txtGameName.Text = "";
+            events.Clear();
+            subjects.Clear();
+
         }
 
         private void btnSubjectAdd_Click(object sender, RoutedEventArgs e)
@@ -117,6 +122,11 @@ namespace Dusza_Fogadas
         private void btnCloseUserNotFound_Click(object sender, RoutedEventArgs e)
         {
             ErrorBox.Visibility = Visibility.Collapsed;
+        }
+
+        private void btnSuccessBox_Click(object sender, RoutedEventArgs e)
+        {
+            SuccesBox.Visibility = Visibility.Collapsed;
         }
     }
 }

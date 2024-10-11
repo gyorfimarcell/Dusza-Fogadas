@@ -25,6 +25,9 @@
                     <Setter Property="Foreground" Value="#f5f5f5"></Setter>
                     <Setter Property="Opacity" Value="0.75"></Setter>
                 </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#1d9618" TargetName="Border" />
+                </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </Window.Resources>
