@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dusza_Fogadas"
         mc:Ignorable="d"
-        Title="NewGame" Height="600" Width="775">
+        Title="" Height="600" Width="775">
 
     <Window.Resources>
         <ControlTemplate x:Key="txtTemplate" TargetType="{x:Type TextBoxBase}">

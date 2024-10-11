@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dusza_Fogadas"
         mc:Ignorable="d"
-        Title="Statistics" Height="670" Width="470">
+        Title="" Height="670" Width="470">
 
     <Window.Resources>
         <ControlTemplate x:Key="normalButton" TargetType="{x:Type Button}">
@@ -26,7 +26,7 @@
         <ControlTemplate x:Key="exitButton" TargetType="{x:Type Button}">
             <Border x:Name="Border" 
             Background="#cc4141"
-            BorderThickness="1" 
+            BorderThickness="0" 
             BorderBrush="#6b6b6b"
             CornerRadius="5">
                 <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>

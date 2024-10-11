@@ -24,6 +24,7 @@ namespace Dusza_Fogadas
         public BetStatisticsWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
 
             cbGame.ItemsSource = Game.Games;
         }
@@ -35,6 +36,11 @@ namespace Dusza_Fogadas
                 Game game = cbGame.SelectedItem as Game;
                 dgStatistics.ItemsSource = BetStatistics.GetStatistics(game);
             }
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            HideIcon.RemoveIcon(this);
         }
     }
 }

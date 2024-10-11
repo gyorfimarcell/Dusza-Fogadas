@@ -28,6 +28,7 @@ namespace Dusza_Fogadas
         public NewGame()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
 
             lbSubjects.ItemsSource = subjects;
             lbEvents.ItemsSource = events;
@@ -103,6 +104,11 @@ namespace Dusza_Fogadas
                 btnCreateGame.IsEnabled = true;
             else
                 btnCreateGame.IsEnabled = false;
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            HideIcon.RemoveIcon(this);
         }
     }
 }

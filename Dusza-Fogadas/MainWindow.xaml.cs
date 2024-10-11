@@ -21,7 +21,14 @@ namespace Dusza_Fogadas
         public MainWindow()
         {
             InitializeComponent();
-            
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+
+
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            HideIcon.RemoveIcon(this);
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)

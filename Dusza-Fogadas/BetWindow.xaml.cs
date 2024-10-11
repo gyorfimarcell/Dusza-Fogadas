@@ -24,6 +24,7 @@ namespace Dusza_Fogadas
         {
             
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             cbGame.ItemsSource = Game.Games.Where(x => !x.IsClosed);
             
         }
@@ -80,6 +81,11 @@ namespace Dusza_Fogadas
             }
             else
                 return false;
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            HideIcon.RemoveIcon(this);
         }
     }
 }

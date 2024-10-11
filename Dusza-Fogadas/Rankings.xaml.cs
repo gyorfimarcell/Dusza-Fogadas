@@ -23,7 +23,13 @@ namespace Dusza_Fogadas
         public Rankings()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             dgRankings.ItemsSource = Ranking.GetRankings();
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            HideIcon.RemoveIcon(this);
         }
     }
 }

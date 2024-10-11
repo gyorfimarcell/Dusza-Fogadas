@@ -22,6 +22,12 @@ namespace Dusza_Fogadas
         public Statistics()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            HideIcon.RemoveIcon(this);
         }
 
         private void btnRankings_Click(object sender, RoutedEventArgs e)

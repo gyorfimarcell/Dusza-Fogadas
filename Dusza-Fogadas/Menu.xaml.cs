@@ -23,6 +23,7 @@ namespace Dusza_Fogadas
         public Menu()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
 
             if (User.CurrentUser == null)
             {
@@ -89,6 +90,11 @@ namespace Dusza_Fogadas
             BetStatisticsWindow statistics = new();
             this.Close();
             statistics.Show();
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            HideIcon.RemoveIcon(this);
         }
     }
 }
