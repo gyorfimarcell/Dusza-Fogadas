@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dusza_Fogadas"
         mc:Ignorable="d"
-        Title="" Height="600" Width="775">
+        Title="" Height="650" Width="775">
 
     <Window.Resources>
         <ControlTemplate x:Key="txtTemplate" TargetType="{x:Type TextBoxBase}">
@@ -67,6 +67,21 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
+
+        <ControlTemplate x:Key="xButton" TargetType="{x:Type Button}">
+            <Border x:Name="Border" 
+     Background="#d95050"
+     BorderBrush="#820000"
+     BorderThickness="2" 
+     CornerRadius="3">
+                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#b53131" TargetName="Border" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </Window.Resources>
 
 
@@ -78,7 +93,8 @@
             <RowDefinition Height="0.57*"></RowDefinition>
             <RowDefinition Height="0.6*"></RowDefinition>
             <RowDefinition Height="3*"></RowDefinition>
-            <RowDefinition Height="1.15*"></RowDefinition>
+            <RowDefinition Height="1.1*"></RowDefinition>
+            <RowDefinition Height="0.9*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -196,19 +212,54 @@
             </ListBox.Resources>
         </ListBox>
 
+
+        <Border x:Name="UserNotFound" 
+Grid.Row="5"
+Grid.ColumnSpan="2" 
+Padding="5 0 15 0"
+BorderThickness="2"
+BorderBrush="#820000"
+Margin="20 0 20 0"
+Height="70"
+CornerRadius="3"
+Opacity="0.85"
+Background="#eb6c6c"
+HorizontalAlignment="Center"
+Visibility="Collapsed">
+            <StackPanel Orientation="Horizontal">
+                <Label VerticalContentAlignment="Center"
+       FontSize="20"
+       HorizontalAlignment="Stretch"
+       Opacity="1"
+       Foreground="#820000">A game with this name already exists!</Label>
+                <Button x:Name="btnCloseUserNotFound" 
+        Click="btnCloseUserNotFound_Click"
+        VerticalAlignment="Center" 
+        VerticalContentAlignment="Center"
+        HorizontalAlignment="Right"
+        Width="33"
+        Height="33"
+        Foreground="#820000"
+        Opacity="1"
+        FontWeight="ExtraBold"
+        Template="{StaticResource xButton}"
+        Cursor="Hand">X</Button>
+            </StackPanel>
+        </Border>
+
+
         <Button x:Name="btnCreateGame"  
                 FontWeight="Light" 
                 Click="btnCreateGame_Click"               
                 Height="55" 
                 Width="225"
                 FontSize="20" 
-                Grid.Row="5" 
+                Grid.Row="6" 
                 Grid.ColumnSpan="2"
                 IsEnabled="False"
                 Foreground="#f5f5f5"
                 Cursor="Hand"
-                Template="{StaticResource onoffButton}"
-                Margin="0 0 0 5">Create Game
+                Template="{StaticResource onoffButton}">Create Game
         </Button>
     </Grid>
 </Window>
