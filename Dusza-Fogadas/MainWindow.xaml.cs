@@ -85,7 +85,11 @@ namespace Dusza_Fogadas
                 try
                 {
                     if (!User.TryLogin(username, password))
-                        UserNotFound.Visibility = Visibility.Visible;
+                    {
+                        ErrorBox.Visibility = Visibility.Visible;
+                        lblErrorBox.Content = "Incorrect Username or Password!";
+                    }
+                        
                     else
                     {
                         User.TryLogin(username, password);
@@ -96,7 +100,8 @@ namespace Dusza_Fogadas
                 }
                 catch (Exception)
                 {
-                    UserNotFound.Visibility = Visibility.Visible;
+                    ErrorBox.Visibility = Visibility.Visible;
+                    lblErrorBox.Content = "Incorrect Username or Password!";
                     throw;
                 }                  
             }
@@ -151,7 +156,7 @@ namespace Dusza_Fogadas
             lblConfirmPasswordError.Content = "";
             lblPasswordError.Content = "";
             lblUsernameError.Content = "";
-            UserNotFound.Visibility = Visibility.Collapsed;
+            ErrorBox.Visibility = Visibility.Collapsed;
         }
 
         private string CheckUsername(string username)
@@ -162,7 +167,7 @@ namespace Dusza_Fogadas
             }
             else if (username.Length < 3)
             {
-                return "Username must be at least 3 character long!";
+                return "Username must be at least 3 characters long!";
             }
             else
                 return "";
@@ -208,9 +213,10 @@ namespace Dusza_Fogadas
             }
         }
 
-        private void btnCloseUserNotFound_Click(object sender, RoutedEventArgs e)
+
+        private void btnErrorBox_Click(object sender, RoutedEventArgs e)
         {
-            UserNotFound.Visibility = Visibility.Collapsed;
+            ErrorBox.Visibility = Visibility.Collapsed;
         }
     }
 }
