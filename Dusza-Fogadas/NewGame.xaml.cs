@@ -42,7 +42,7 @@ namespace Dusza_Fogadas
                 return;
             }
 
-            if (Game.Games.Any(x => x.Name == txtGameName.Name))
+            if (Game.Games.Any(x => x.Name == txtGameName.Text))
             {
                 MessageBox.Show("A game with this name already exists!");
                 return;
