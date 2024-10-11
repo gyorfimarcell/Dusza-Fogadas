@@ -24,6 +24,7 @@ namespace Dusza_Fogadas
         {
             
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             cbGame.ItemsSource = Game.Games.Where(x => !x.IsClosed);
             
         }
@@ -74,12 +75,28 @@ namespace Dusza_Fogadas
 
         private bool canBet()
         {
-            if (cbEvent.SelectedIndex != -1 && cbSubject.SelectedIndex != -1 && txtBetAmount.Text != "" && txtOutcome.Text != "")
+            if (cbEvent.SelectedIndex != -1 && cbSubject.SelectedIndex != -1 && txtBetAmount.Text != "" && txtOutcome.Text != "" && IsDigitsOnly(txtBetAmount.Text) && User.CurrentUser.Balance > int.Parse(txtBetAmount.Text))
             {
-                return true;
+                return true;          
             }
             else
                 return false;
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            HideIcon.RemoveIcon(this);
+        }
+
+        bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
         }
     }
 }

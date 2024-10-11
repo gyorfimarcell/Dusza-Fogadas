@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dusza_Fogadas"
         mc:Ignorable="d"
-        Title="GameStatisticsWindow" Height="600" Width="775">
+        Title="" Height="600" Width="775">
 
     <Border Background="#f5f5f5" Height="485" Width="675" BorderBrush="#2b2b2b" BorderThickness="1">
         <Grid>
@@ -15,7 +15,7 @@
             </Grid.RowDefinitions>
 
             <local:Header
-        Title="Game Statistics"/>
+        Title="Game Statistics" />
             <DataGrid x:Name="dgStatistics"
       CanUserAddRows="False"
       IsReadOnly="True"

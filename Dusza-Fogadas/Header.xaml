@@ -8,8 +8,8 @@
              d:DesignHeight="100" d:DesignWidth="800"
              Background="White"
              Loaded="UserControl_Loaded">
-    
-    <Grid Background="#f5f5f5">
+
+    <Grid Background="#f0f0f0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -45,7 +45,8 @@
             FontSize="17"
             FontWeight="Light"
             Background="#e6e6e6"
-            Click="btnBackToMenu_Click">Menu
+            Click="btnBackToMenu_Click"
+            Cursor="Hand">Menu
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="3"/>

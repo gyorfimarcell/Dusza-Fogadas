@@ -23,7 +23,13 @@ namespace Dusza_Fogadas
         public GameStatisticsWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             dgStatistics.ItemsSource = GameStatistics.GetStatistics();
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            HideIcon.RemoveIcon(this);
         }
     }
 }

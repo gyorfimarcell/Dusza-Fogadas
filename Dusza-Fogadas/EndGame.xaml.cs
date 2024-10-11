@@ -26,6 +26,7 @@ namespace Dusza_Fogadas
         public EndGame()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
 
             cbGames.ItemsSource = Game.Games.Where(x => !x.IsClosed);
         }
@@ -61,6 +62,11 @@ namespace Dusza_Fogadas
         private void dgSubjectsAndEvents_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             CheckIfCanSubmit();
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            HideIcon.RemoveIcon(this);
         }
 
     }

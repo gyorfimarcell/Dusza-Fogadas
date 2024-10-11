@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dusza_Fogadas"
         mc:Ignorable="d"
-        Title="Menu" Height="670" Width="470">
+        Title="" Height="670" Width="470">
 
     <Window.Resources>
         <ControlTemplate x:Key="normalButton" TargetType="{x:Type Button}">
@@ -26,7 +26,7 @@
         <ControlTemplate x:Key="exitButton" TargetType="{x:Type Button}">
             <Border x:Name="Border" 
                     Background="#cc4141"
-                    BorderThickness="1" 
+                    BorderThickness="0" 
                     BorderBrush="#6b6b6b"
                     CornerRadius="5">
                 <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
@@ -58,6 +58,7 @@
                     Margin="20 25 20 15"
                     FontWeight="Light"
                     Content="Create new Game"
+                    Cursor="Hand"
                     Template="{StaticResource normalButton}">
                 </Button>
             
@@ -68,6 +69,7 @@
                     FontSize="25"
                     Margin="20 0 20 15"
                     FontWeight="Light"
+                    Cursor="Hand"
                     Template="{StaticResource normalButton}">Make a bet                  
                 </Button>
 
@@ -78,6 +80,7 @@
                     FontSize="25"
                     Margin="20 0 20 15"
                     FontWeight="Light"
+                    Cursor="Hand"
                     Template="{StaticResource normalButton}">End a Game
                 </Button>
 
@@ -90,6 +93,7 @@
                     FontSize="25"
                     Margin="20 0 20 15"
                     FontWeight="Light"
+                    Cursor="Hand"
                     Template="{StaticResource normalButton}">Statistics                  
                 </Button>
 
@@ -101,6 +105,7 @@
                     Margin="50 0 50 15"
                     Foreground="#e6e6e6"
                     FontWeight="Light"
+                    Cursor="Hand"
                     Template="{StaticResource exitButton}">Exit                
                 </Button>
 
@@ -112,6 +117,7 @@
                     Margin="50 0 50 15"
                     Foreground="#e6e6e6"
                     FontWeight="Light"
+                    Cursor="Hand"
                     Template="{StaticResource exitButton}">Log out
                 </Button>
         </DockPanel>
