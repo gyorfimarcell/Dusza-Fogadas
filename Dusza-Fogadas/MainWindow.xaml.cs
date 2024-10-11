@@ -85,7 +85,7 @@ namespace Dusza_Fogadas
                 try
                 {
                     if (!User.TryLogin(username, password))
-                        MessageBox.Show("This user does not exist!");
+                        UserNotFound.Visibility = Visibility.Visible;
                     else
                     {
                         User.TryLogin(username, password);
@@ -96,7 +96,7 @@ namespace Dusza_Fogadas
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Incorect Password!");
+                    UserNotFound.Visibility = Visibility.Visible;
                     throw;
                 }                  
             }
@@ -151,6 +151,7 @@ namespace Dusza_Fogadas
             lblConfirmPasswordError.Content = "";
             lblPasswordError.Content = "";
             lblUsernameError.Content = "";
+            UserNotFound.Visibility = Visibility.Collapsed;
         }
 
         private string CheckUsername(string username)
@@ -205,6 +206,11 @@ namespace Dusza_Fogadas
                 PasswordBox textBox = sender as PasswordBox;
                 textBox.BorderBrush = new SolidColorBrush(Colors.Black);
             }
+        }
+
+        private void btnCloseUserNotFound_Click(object sender, RoutedEventArgs e)
+        {
+            UserNotFound.Visibility = Visibility.Collapsed;
         }
     }
 }

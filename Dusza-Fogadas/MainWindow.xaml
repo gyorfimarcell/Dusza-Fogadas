@@ -81,6 +81,21 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
+
+        <ControlTemplate x:Key="xButton" TargetType="{x:Type Button}">
+            <Border x:Name="Border" 
+                    Background="#d95050"
+                    BorderBrush="#820000"
+                    BorderThickness="2" 
+                    CornerRadius="3">
+                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#b53131" TargetName="Border" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </Window.Resources>
 
     <Border BorderBrush="#2b2b2b" Background="#f5f5f5" Padding="0 0 0 10" BorderThickness="1.5" Height="550" Width="370" CornerRadius="7">
@@ -121,13 +136,61 @@
             
             <!--Password-->
             <Label FontSize="25" FontWeight="Light" VerticalAlignment="Center" Margin="17.5 0 0 0" HorizontalAlignment="Left"  Grid.Row="4">Password</Label>
-            <PasswordBox x:Name="txtPassword" FontWeight="Light" Padding="5 0 0 0" Grid.Row="5" Background="#e6e6e6" IsEnabled="True" Template="{StaticResource passwordbox}" Height="50" Margin="20 0 20 0" GotFocus="RemoveErrorOutline" PasswordChar="*" FontSize="20" VerticalContentAlignment="Center">
+            <PasswordBox x:Name="txtPassword" 
+                         FontWeight="Light" 
+                         Padding="5 0 0 0" 
+                         Grid.Row="5" 
+                         Background="#e6e6e6" 
+                         IsEnabled="True" 
+                         Template="{StaticResource passwordbox}" 
+                         Height="50" 
+                         Margin="20 0 20 0" 
+                         GotFocus="RemoveErrorOutline" 
+                         PasswordChar="*" 
+                         FontSize="20" 
+                         VerticalContentAlignment="Center">
             </PasswordBox>
 
 
             <Label x:Name="lblPasswordError" FontWeight="Light" Margin="20 0 0 0" FontSize="15" VerticalAlignment="Top" Foreground="Red" Grid.Row="6"></Label>
 
 
+            <Border x:Name="UserNotFound" 
+                    Grid.Row="7"
+                    Grid.RowSpan="2" 
+                    Padding="5 0 15 0"
+                    BorderThickness="2"
+                    BorderBrush="#820000"
+                    Margin="20 0 20 0"
+                    Height="70"
+                    CornerRadius="3"
+                    Opacity="0.85"
+                    Background="#eb6c6c"
+                    HorizontalAlignment="Center"
+                    Visibility="Collapsed">
+                <StackPanel Orientation="Horizontal">
+                    <Label VerticalContentAlignment="Center"
+                           FontSize="18"
+                           HorizontalAlignment="Stretch"
+                           Opacity="1"
+                           Foreground="#820000">Incorrect username or password!</Label>
+                    <Button x:Name="btnCloseUserNotFound" 
+                            Click="btnCloseUserNotFound_Click"
+                            VerticalAlignment="Center" 
+                            VerticalContentAlignment="Center"
+                            HorizontalAlignment="Right"
+                            Width="33"
+                            Height="33"
+                            Foreground="#820000"
+                            Opacity="1"
+                            FontWeight="ExtraBold"
+                            Template="{StaticResource xButton}"
+                            Cursor="Hand">X</Button>
+                </StackPanel>
+            </Border>
+            
+            
+            
             <!--Confrim Password-->
             <Label x:Name="lblConfirmPassword" FontWeight="Light" Visibility="Collapsed" FontSize="25" VerticalAlignment="Center" Margin="17.5 0 0 0" HorizontalAlignment="Left" Grid.Row="7">Confirm Password</Label>
             <PasswordBox x:Name="txtConfirmPassword" Padding="5 0 0 0" Background="#e6e6e6" Grid.Row="8" Template="{StaticResource passwordbox}" Height="50" GotFocus="RemoveErrorOutline" Visibility="Collapsed" PasswordChar="*" FontSize="20" Margin="20 0 20 0" VerticalContentAlignment="Center">
@@ -147,6 +210,7 @@
                     Height="50" 
                     Margin="20 0 20 0" 
                     Content="Login"
+                    Cursor="Hand"
                     Template="{StaticResource loginButton}">
             </Button>
 
@@ -160,6 +224,7 @@
                     Margin="20 0 20 0" 
                     Height="50" 
                     Content="Register"
+                    Cursor="Hand"
                     Template="{StaticResource loginButton}">
             </Button>
 
@@ -178,6 +243,7 @@
                     Height="25" 
                     Margin="95 35 95 0" 
                     Content="Sign up!"
+                    Cursor="Hand"
                     Template="{StaticResource signupButton}">
              
             </Button>
@@ -199,6 +265,7 @@
                     Margin="95 35 95 0" 
                     Height="25" 
                     Content="Sign in!"
+                    Cursor="Hand"
                     Template="{StaticResource signupButton}">
             </Button>
         </Grid>

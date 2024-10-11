@@ -94,6 +94,7 @@ namespace Dusza_Fogadas.Models
             return false;
         }
 
+
         public static void Logout()
         {
             CurrentUser = null;

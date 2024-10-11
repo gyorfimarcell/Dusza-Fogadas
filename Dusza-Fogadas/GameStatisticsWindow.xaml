@@ -15,7 +15,7 @@
             </Grid.RowDefinitions>
 
             <local:Header
-        Title="Game Statistics"/>
+        Title="Game Statistics" />
             <DataGrid x:Name="dgStatistics"
       CanUserAddRows="False"
       IsReadOnly="True"

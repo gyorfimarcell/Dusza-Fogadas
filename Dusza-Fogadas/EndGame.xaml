@@ -92,6 +92,7 @@
         HorizontalContentAlignment="Center"
         Template="{StaticResource normalButton}"
         IsEnabled="False"
+        Cursor="Hand"
         Foreground="White">End Game
         </Button>
     </Grid>

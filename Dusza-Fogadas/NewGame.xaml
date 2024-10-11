@@ -110,6 +110,8 @@
                     Height="30" 
                     DockPanel.Dock="Right" 
                     Click="btnSubjectAdd_Click"
+                    Cursor="Hand"
+                    FontWeight="UltraBold"
                     Template="{StaticResource normalButton}">+
             </Button>
             <TextBox x:Name="txtSubject" 
@@ -118,6 +120,7 @@
                      Template="{StaticResource txtTemplate}" 
                      VerticalContentAlignment="Center"
                      FontSize="17"
+                     Cursor="Hand"
                      Padding="5 0 0 0"/>
         </DockPanel>
 
@@ -135,6 +138,8 @@
                     Height="30" 
                     DockPanel.Dock="Right" 
                     Click="btnEventAdd_Click"
+                    Cursor="Hand"
+                    FontWeight="UltraBold"
                     Template="{StaticResource normalButton}">+
             </Button>
             <TextBox x:Name="txtEvent" 
@@ -201,6 +206,7 @@
                 Grid.ColumnSpan="2"
                 IsEnabled="False"
                 Foreground="#f5f5f5"
+                Cursor="Hand"
                 Template="{StaticResource onoffButton}"
                 Margin="0 0 0 5">Create Game
         </Button>
