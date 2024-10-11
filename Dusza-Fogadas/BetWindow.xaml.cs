@@ -49,10 +49,13 @@ namespace Dusza_Fogadas
             try
             {
                 Bet.PlaceBet((cbGame.SelectedItem as Game).Id, (cbSubject.SelectedItem as GameSubject).Id, (cbEvent.SelectedItem as GameEvent).Id, outcome, amount);
-                MessageBox.Show("Successfully placed bet!");
+                ErrorBox.Visibility = Visibility.Collapsed;
+                SuccesBox.Visibility = Visibility.Visible;
+                lblSuccessBox.Content = "You have successfully placed a bet!";
             }
             catch (Exception ex)
             {
+                SuccesBox.Visibility= Visibility.Collapsed;
                 ErrorBox.Visibility = Visibility.Visible;
                 lblErrorBox.Content = ex.Message;
             }
@@ -106,6 +109,11 @@ namespace Dusza_Fogadas
         private void btnErrorBox_Click(object sender, RoutedEventArgs e)
         {
             ErrorBox.Visibility = Visibility.Collapsed;
+        }
+
+        private void btnSuccessBox_Click(object sender, RoutedEventArgs e)
+        {
+            SuccesBox.Visibility = Visibility.Collapsed;
         }
     }
 }

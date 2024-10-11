@@ -53,12 +53,15 @@
                     <Setter Property="Foreground" Value="#f5f5f5"></Setter>
                     <Setter Property="Opacity" Value="0.75"></Setter>
                 </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#1d9618" TargetName="Border" />
+                </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
 
         <ControlTemplate x:Key="xButton" TargetType="{x:Type Button}">
             <Border x:Name="Border" 
-             Background="#d95050"
+             Background="#db5c5c"
              BorderBrush="#820000"
              BorderThickness="2" 
              CornerRadius="3">
@@ -66,7 +69,28 @@
             </Border>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#b53131" TargetName="Border" />
+                    <Setter Property="Background" Value="#bd4848" TargetName="Border" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#cf4040" TargetName="Border" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="xButtonGreen" TargetType="{x:Type Button}">
+            <Border x:Name="Border" 
+                    Background="#58b85a"
+                    BorderBrush="#08660a"
+                    BorderThickness="2" 
+                    CornerRadius="3">
+                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#34a336" TargetName="Border" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#32b834" TargetName="Border" />
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
@@ -115,18 +139,18 @@ BorderThickness="1" Background="#e6e6e6" FontWeight="Light" VerticalContentAlign
         <TextBox x:Name="txtBetAmount" IsEnabled="False" Padding="5 0 0 0" VerticalContentAlignment="Center" TextChanged="CheckIfCanBetTXT" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="6"  Template="{StaticResource txtTemplate}" FontWeight="Light"></TextBox>
 
         <Border x:Name="ErrorBox" 
-        Grid.Row="7"
-        Grid.ColumnSpan="4" 
-        Padding="5 0 15 0"
-        BorderThickness="2"
-        BorderBrush="#820000"
-        Margin="18 0 18 0"
-        Height="70"
-        CornerRadius="3"
-        Opacity="0.85"
-        Background="#ed7777"
-        HorizontalAlignment="Center"
-        Visibility="Collapsed">
+                Grid.Row="7"
+                Grid.ColumnSpan="4" 
+                Padding="5 0 15 0"
+                BorderThickness="2"
+                BorderBrush="#820000"
+                Margin="18 0 18 0"
+                Height="70"
+                CornerRadius="3"
+                Opacity="0.85"
+                Background="#e68383"
+                HorizontalAlignment="Center"
+                Visibility="Collapsed">
             <StackPanel Orientation="Horizontal">
                 <Label VerticalContentAlignment="Center"
                        x:Name="lblErrorBox"
@@ -146,6 +170,41 @@ BorderThickness="1" Background="#e6e6e6" FontWeight="Light" VerticalContentAlign
                 FontWeight="ExtraBold"
                 Template="{StaticResource xButton}"
                 Cursor="Hand">X</Button>
+            </StackPanel>
+        </Border>
+
+        <Border x:Name="SuccesBox" 
+                Grid.Row="7"
+                Grid.ColumnSpan="4" 
+                Padding="5 0 15 0"
+                BorderThickness="2"
+                BorderBrush="#08660a"
+                Margin="18 0 18 0"
+                Height="70"
+                CornerRadius="3"
+                Opacity="0.85"
+                Background="#68c46a"
+                HorizontalAlignment="Center"
+                Visibility="Collapsed">
+            <StackPanel Orientation="Horizontal">
+                <Label VerticalContentAlignment="Center"
+                       x:Name="lblSuccessBox"
+                       FontSize="20"
+                       HorizontalAlignment="Stretch"
+                       Opacity="1"
+                       Foreground="#f5f5f5">Succesfully placed a bet!</Label>
+                <Button x:Name="btnSuccessBox" 
+                        Click="btnSuccessBox_Click"
+                        VerticalAlignment="Center" 
+                        VerticalContentAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Width="33"
+                        Height="33"
+                        Foreground="#f5f5f5"
+                        Opacity="1"
+                        FontWeight="ExtraBold"
+                        Template="{StaticResource xButtonGreen}"
+                        Cursor="Hand">X</Button>
             </StackPanel>
         </Border>
 

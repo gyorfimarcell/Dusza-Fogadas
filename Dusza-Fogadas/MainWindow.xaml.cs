@@ -163,7 +163,7 @@ namespace Dusza_Fogadas
         {
             if (string.IsNullOrWhiteSpace(username))
             {
-                return "No username!";
+                return "Username must not be empty!";
             }
             else if (username.Length < 3)
             {
@@ -177,7 +177,7 @@ namespace Dusza_Fogadas
         {
             if (string.IsNullOrWhiteSpace(password))
             {
-                return "No password!";
+                return "Password must not be empty!";
             }
             else if (password.Length < 6)
             {
