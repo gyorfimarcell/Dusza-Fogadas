@@ -58,7 +58,7 @@
 
         <ControlTemplate x:Key="xButton" TargetType="{x:Type Button}">
             <Border x:Name="Border" 
-             Background="#d95050"
+             Background="#db5c5c"
              BorderBrush="#820000"
              BorderThickness="2" 
              CornerRadius="3">
@@ -66,7 +66,7 @@
             </Border>
             <ControlTemplate.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#b53131" TargetName="Border" />
+                    <Setter Property="Background" Value="#bd4848" TargetName="Border" />
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
@@ -124,7 +124,7 @@ BorderThickness="1" Background="#e6e6e6" FontWeight="Light" VerticalContentAlign
         Height="70"
         CornerRadius="3"
         Opacity="0.85"
-        Background="#ed7777"
+        Background="#e68383"
         HorizontalAlignment="Center"
         Visibility="Collapsed">
             <StackPanel Orientation="Horizontal">

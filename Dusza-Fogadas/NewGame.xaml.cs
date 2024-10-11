@@ -46,6 +46,8 @@ namespace Dusza_Fogadas
             {
                 ErrorBox.Visibility = Visibility.Visible;
                 lblErrorBox.Content = "A game with that name already exists!";
+                txtGameName.Text = "";
+                txtGameName.Focus();
                 return;
             }
 
