@@ -93,8 +93,8 @@
             <RowDefinition Height="0.57*"></RowDefinition>
             <RowDefinition Height="0.6*"></RowDefinition>
             <RowDefinition Height="3*"></RowDefinition>
-            <RowDefinition Height="1.1*"></RowDefinition>
-            <RowDefinition Height="0.9*"></RowDefinition>
+            <RowDefinition Height="1.2*"></RowDefinition>
+            <RowDefinition Height="0.95*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -213,37 +213,38 @@
         </ListBox>
 
 
-        <Border x:Name="UserNotFound" 
-Grid.Row="5"
-Grid.ColumnSpan="2" 
-Padding="5 0 15 0"
-BorderThickness="2"
-BorderBrush="#820000"
-Margin="20 0 20 0"
-Height="70"
-CornerRadius="3"
-Opacity="0.85"
-Background="#eb6c6c"
-HorizontalAlignment="Center"
-Visibility="Collapsed">
+        <Border x:Name="ErrorBox" 
+            Grid.Row="5"
+            Grid.ColumnSpan="2" 
+            Padding="5 0 15 0"
+            BorderThickness="2"
+            BorderBrush="#820000"
+            Margin="18 0 18 0"
+            Height="70"
+            CornerRadius="3"
+            Opacity="0.85"
+            Background="#ed7777"
+            HorizontalAlignment="Center"
+            Visibility="Collapsed">
             <StackPanel Orientation="Horizontal">
                 <Label VerticalContentAlignment="Center"
-       FontSize="20"
-       HorizontalAlignment="Stretch"
-       Opacity="1"
-       Foreground="#820000">A game with this name already exists!</Label>
+                        FontSize="20"
+                        HorizontalAlignment="Stretch"
+                        Opacity="1"
+                        x:Name="lblErrorBox"
+                        Foreground="#820000">A game with this name already exists!</Label>
                 <Button x:Name="btnCloseUserNotFound" 
-        Click="btnCloseUserNotFound_Click"
-        VerticalAlignment="Center" 
-        VerticalContentAlignment="Center"
-        HorizontalAlignment="Right"
-        Width="33"
-        Height="33"
-        Foreground="#820000"
-        Opacity="1"
-        FontWeight="ExtraBold"
-        Template="{StaticResource xButton}"
-        Cursor="Hand">X</Button>
+                        Click="btnCloseUserNotFound_Click"
+                        VerticalAlignment="Center" 
+                        VerticalContentAlignment="Center"
+                        HorizontalAlignment="Right"
+                        Width="33"
+                        Height="33"
+                        Foreground="#820000"
+                        Opacity="1"
+                        FontWeight="ExtraBold"
+                        Template="{StaticResource xButton}"
+                        Cursor="Hand">X</Button>
             </StackPanel>
         </Border>
 

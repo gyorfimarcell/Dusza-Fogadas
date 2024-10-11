@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dusza_Fogadas"
         mc:Ignorable="d"
-        Title="" Height="670" Width="470">
+        Title="" Height="700" Width="470">
 
     <Window.Resources>
         <ControlTemplate x:Key="passwordbox" TargetType="{x:Type PasswordBox}">
@@ -98,26 +98,26 @@
         </ControlTemplate>
     </Window.Resources>
 
-    <Border BorderBrush="#2b2b2b" Background="#f5f5f5" Padding="0 0 0 10" BorderThickness="1.5" Height="550" Width="370" CornerRadius="7">
+    <Border BorderBrush="#2b2b2b" Background="#f5f5f5" Padding="0 0 0 10" BorderThickness="1.5" Height="600" Width="370" CornerRadius="7">
         <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.1*"></RowDefinition>
 
                 <RowDefinition Height="0.7*"></RowDefinition>
                 <RowDefinition></RowDefinition>
-                <RowDefinition Height="0.5*"></RowDefinition>
+                <RowDefinition Height="0.55*"></RowDefinition>
 
                 <RowDefinition Height="0.7*"></RowDefinition>
                 <RowDefinition></RowDefinition>
-                <RowDefinition Height="0.5*"></RowDefinition>
+                <RowDefinition Height="0.55*"></RowDefinition>
 
                 <RowDefinition Height="0.7*"></RowDefinition>
                 <RowDefinition></RowDefinition>
-                <RowDefinition Height="0.5*"></RowDefinition>
+                <RowDefinition Height="0.55*"></RowDefinition>
 
+                <RowDefinition Height="0.4*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
-
-                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition Height="0.25*"></RowDefinition>
                 
                 <RowDefinition Height="1.15*"></RowDefinition>
             </Grid.RowDefinitions>
@@ -155,13 +155,13 @@
             <Label x:Name="lblPasswordError" FontWeight="Light" Margin="20 0 0 0" FontSize="15" VerticalAlignment="Top" Foreground="Red" Grid.Row="6"></Label>
 
 
-            <Border x:Name="UserNotFound" 
+            <Border x:Name="ErrorBox" 
                     Grid.Row="7"
-                    Grid.RowSpan="2" 
+                    Grid.RowSpan="3" 
                     Padding="5 0 15 0"
                     BorderThickness="2"
                     BorderBrush="#820000"
-                    Margin="20 0 20 0"
+                    Margin="18 0 18 0"
                     Height="70"
                     CornerRadius="3"
                     Opacity="0.85"
@@ -173,9 +173,10 @@
                            FontSize="18"
                            HorizontalAlignment="Stretch"
                            Opacity="1"
-                           Foreground="#820000">Incorrect username or password!</Label>
-                    <Button x:Name="btnCloseUserNotFound" 
-                            Click="btnCloseUserNotFound_Click"
+                           x:Name="lblErrorBox"
+                           Foreground="#820000">Incorrect Username or Password!</Label>
+                    <Button x:Name="btnErrorBox" 
+                            Click="btnErrorBox_Click"
                             VerticalAlignment="Center" 
                             VerticalContentAlignment="Center"
                             HorizontalAlignment="Right"
@@ -206,7 +207,7 @@
                     Foreground="White" 
                     Click="btnLogin_Click" 
                     FontSize="25" 
-                    Grid.Row="10" 
+                    Grid.Row="11" 
                     Height="50" 
                     Margin="20 0 20 0" 
                     Content="Login"
@@ -220,7 +221,7 @@
                     Foreground="White" 
                     Click="btnRegister_Click" 
                     Visibility="Collapsed" FontSize="25" 
-                    Grid.Row="10" 
+                    Grid.Row="11" 
                     Margin="20 0 20 0" 
                     Height="50" 
                     Content="Register"
@@ -231,14 +232,14 @@
             
             <!--Sign UP Button-->
             <Label x:Name="lblDontHave" 
-                   Grid.Row="12" 
+                   Grid.Row="13" 
                    FontSize="18" 
                    HorizontalAlignment="Center">Don't have an account yet?</Label>
             
             <Button x:Name="btnDontHave" 
                     Foreground="White" 
                     Click="btnDontHave_Click" 
-                    Grid.Row="12" 
+                    Grid.Row="13" 
                     FontSize="15" 
                     Height="25" 
                     Margin="95 35 95 0" 
@@ -252,7 +253,7 @@
             <!--Sign IN Button-->
             <Label x:Name="lblAlreadyHave" 
                    Visibility="Collapsed" 
-                   Grid.Row="12" 
+                   Grid.Row="13" 
                    FontSize="18" 
                    HorizontalAlignment="Center">Already have an account?</Label>
             
@@ -260,7 +261,7 @@
                     Click="btnAlreadyHave_Click" 
                     Foreground="White" 
                     Visibility="Collapsed"
-                    Grid.Row="12" 
+                    Grid.Row="13" 
                     FontSize="15" 
                     Margin="95 35 95 0" 
                     Height="25" 
