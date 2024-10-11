@@ -48,7 +48,7 @@ namespace Dusza_Fogadas.Models
 
             if (User.CurrentUser.Bets.Any(x => x.SubjectId == subjectId && x.EventId == eventId))
             {
-                throw new ArgumentException("User already placed a bet!");
+                throw new ArgumentException("You have already placed a bet for this combination!");
             }
 
             Bet bet = new()

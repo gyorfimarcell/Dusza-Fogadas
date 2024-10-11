@@ -51,7 +51,8 @@ namespace Dusza_Fogadas
                 }
                 catch (ArgumentException)
                 {
-                    throw;
+                    lblUsernameError.Content = "An user with this name already exists!";
+                    return;
                 }             
             }
             else

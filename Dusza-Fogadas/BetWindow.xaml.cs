@@ -22,11 +22,11 @@ namespace Dusza_Fogadas
     {
         public BetWindow()
         {
-            
+
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             cbGame.ItemsSource = Game.Games.Where(x => !x.IsClosed);
-            
+
         }
         private void cbGame_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -43,7 +43,7 @@ namespace Dusza_Fogadas
 
         private void btnBet_Click(object sender, RoutedEventArgs e)
         {
- 
+
             string outcome = txtOutcome.Text;
             int amount = Convert.ToInt32(txtBetAmount.Text);
             try
@@ -63,8 +63,8 @@ namespace Dusza_Fogadas
 
         private void CheckIfCanBetCB(object sender, SelectionChangedEventArgs e)
         {
-            if (canBet()) { btnBet.IsEnabled = true;}
-            else { btnBet.IsEnabled = false;}
+            if (canBet()) { btnBet.IsEnabled = true; }
+            else { btnBet.IsEnabled = false; }
         }
 
         private void CheckIfCanBetTXT(object sender, TextChangedEventArgs e)
@@ -75,9 +75,12 @@ namespace Dusza_Fogadas
 
         private bool canBet()
         {
-            if (cbEvent.SelectedIndex != -1 && cbSubject.SelectedIndex != -1 && txtBetAmount.Text != "" && txtOutcome.Text != "" && IsDigitsOnly(txtBetAmount.Text) && User.CurrentUser.Balance > int.Parse(txtBetAmount.Text))
+            if (cbEvent.SelectedIndex != -1 && cbSubject.SelectedIndex != -1
+                && txtBetAmount.Text != "" && txtOutcome.Text != ""
+                && IsDigitsOnly(txtBetAmount.Text) && User.CurrentUser.Balance >= int.Parse(txtBetAmount.Text)
+                && int.Parse(txtBetAmount.Text) > 0)
             {
-                return true;          
+                return true;
             }
             else
                 return false;
