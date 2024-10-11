@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dusza_Fogadas"
         mc:Ignorable="d"
-        Title="" Height="700" Width="470">
+        Title="" Height="670" Width="470">
 
     <Window.Resources>
         <ControlTemplate x:Key="normalButton" TargetType="{x:Type Button}">
@@ -39,7 +39,7 @@
         </ControlTemplate>
     </Window.Resources>
 
-    <Border BorderBrush="#2b2b2b" Background="#f5f5f5" Padding="0 0 0 10" BorderThickness="1.5" Height="600" Width="370" CornerRadius="7">
+    <Border BorderBrush="#2b2b2b" Background="#f5f5f5" Padding="0 0 0 10" BorderThickness="1.5" Height="550" Width="370" CornerRadius="7">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>

@@ -53,8 +53,7 @@ namespace Dusza_Fogadas
             }
             catch (Exception ex)
             {
-                ErrorBox.Visibility = Visibility.Visible;
-                lblErrorBox.Content = ex.Message;
+                MessageBox.Show(ex.Message);
             }
             txtBetAmount.Text = "";
             txtOutcome.Text = "";
@@ -101,11 +100,6 @@ namespace Dusza_Fogadas
             }
 
             return true;
-        }
-
-        private void btnErrorBox_Click(object sender, RoutedEventArgs e)
-        {
-            ErrorBox.Visibility = Visibility.Collapsed;
         }
     }
 }

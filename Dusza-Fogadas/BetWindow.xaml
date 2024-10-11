@@ -89,8 +89,8 @@
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1.2*"></RowDefinition>
-            <RowDefinition Height="0.95*"></RowDefinition>
+            <RowDefinition Height="1.1*"></RowDefinition>
+            <RowDefinition Height="0.9*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <local:Header
@@ -114,28 +114,27 @@ BorderThickness="1" Background="#e6e6e6" FontWeight="Light" VerticalContentAlign
         <Label FontSize="25" VerticalAlignment="Center" FontWeight="Light" Grid.Row="6" Grid.Column="1">Points</Label>
         <TextBox x:Name="txtBetAmount" IsEnabled="False" Padding="5 0 0 0" VerticalContentAlignment="Center" TextChanged="CheckIfCanBetTXT" FontSize="25" Grid.Column="2" Height="50" Margin="10 0 10 0" Grid.Row="6"  Template="{StaticResource txtTemplate}" FontWeight="Light"></TextBox>
 
-        <Border x:Name="ErrorBox" 
+        <Border x:Name="UserNotFound" 
         Grid.Row="7"
         Grid.ColumnSpan="4" 
         Padding="5 0 15 0"
         BorderThickness="2"
         BorderBrush="#820000"
-        Margin="18 0 18 0"
+        Margin="20 0 20 0"
         Height="70"
         CornerRadius="3"
         Opacity="0.85"
-        Background="#ed7777"
+        Background="#eb6c6c"
         HorizontalAlignment="Center"
         Visibility="Collapsed">
             <StackPanel Orientation="Horizontal">
                 <Label VerticalContentAlignment="Center"
-                       x:Name="lblErrorBox"
                FontSize="20"
                HorizontalAlignment="Stretch"
                Opacity="1"
-               Foreground="#820000"></Label>
-                <Button x:Name="btnErrorBox" 
-                Click="btnErrorBox_Click"
+               Foreground="#820000">A game with this name already exists!</Label>
+                <Button x:Name="btnCloseUserNotFound" 
+                Click="btnCloseUserNotFound_Click"
                 VerticalAlignment="Center" 
                 VerticalContentAlignment="Center"
                 HorizontalAlignment="Right"

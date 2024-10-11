@@ -44,8 +44,7 @@ namespace Dusza_Fogadas
 
             if (Game.Games.Any(x => x.Name == txtGameName.Text))
             {
-                ErrorBox.Visibility = Visibility.Visible;
-                lblErrorBox.Content = "A game with that name already exists!";
+                MessageBox.Show("A game with this name already exists!");
                 return;
             }
 
@@ -110,11 +109,6 @@ namespace Dusza_Fogadas
         protected override void OnSourceInitialized(EventArgs e)
         {
             HideIcon.RemoveIcon(this);
-        }
-
-        private void btnCloseUserNotFound_Click(object sender, RoutedEventArgs e)
-        {
-            ErrorBox.Visibility = Visibility.Collapsed;
         }
     }
 }
